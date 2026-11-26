@@ -7,6 +7,7 @@
   <meta name="description" content="We are Loeriesfontein Data Collection Specialists (LDCS), a South African Monitoring, Evaluation, Research and Data Collection company based in the Northern Cape.">
   <meta name="author" content="Loeriesfontein Data Collection Specialists (Pty) Ltd">
   <title>LDCS | We turn community evidence into meaningful insight</title>
+  <link rel="icon" type="image/png" sizes="128x128" href="favicon.png">
   <style>
     :root {
       --ink: #14283a;
@@ -57,7 +58,7 @@
     .site-header { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,.94); border-bottom: 1px solid rgba(220,229,234,.8); backdrop-filter: blur(18px); }
     .nav-wrap { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
     .brand { display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; }
-    .brand-symbol { width: 43px; height: 43px; display: grid; place-items: center; border-radius: 11px 11px 11px 3px; color: var(--white); background: var(--navy); font-size: 12px; font-weight: 900; letter-spacing: -.04em; box-shadow: 5px 5px 0 var(--sky); }
+    .brand-logo { width: 54px; height: 58px; flex: 0 0 auto; display: block; object-fit: contain; }
     .brand-copy strong { display: block; color: var(--navy); font-size: 16px; letter-spacing: .12em; line-height: 1.1; }
     .brand-copy small { display: block; margin-top: 5px; color: #70808c; font-size: 8px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
     .main-nav { display: flex; align-items: center; gap: 5px; }
@@ -253,11 +254,14 @@
     .people-statement .big-four { color: var(--sky); font-size: 76px; line-height: 1; font-weight: 850; letter-spacing: -.08em; }
     .people-statement h3 { margin: 15px 0 10px; color: var(--white); font-size: 19px; }
     .people-statement p { color: #bfd0da; font-size: 12px; line-height: 1.8; }
-    .director-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-    .director-card { min-height: 105px; display: flex; align-items: center; gap: 13px; padding: 16px; border: 1px solid rgba(169,214,232,.18); border-radius: 10px; background: rgba(255,255,255,.04); }
-    .director-initial { width: 39px; height: 39px; flex: 0 0 auto; display: grid; place-items: center; border-radius: 50%; color: var(--navy); background: var(--sky); font-size: 11px; font-weight: 900; }
-    .director-card strong { display: block; color: var(--white); font-size: 12px; line-height: 1.35; }
-    .director-card span { display: block; margin-top: 4px; color: #a9bfcb; font-size: 9px; }
+    .director-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .director-card { position: relative; min-height: 126px; display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 17px; padding: 18px 19px 17px; overflow: hidden; border: 1px solid rgba(169,214,232,.2); border-radius: 10px; background: linear-gradient(135deg, rgba(255,255,255,.075), rgba(255,255,255,.025)); transition: transform .25s ease, border-color .25s ease, background .25s ease, box-shadow .25s ease; }
+    .director-card::after { content: ""; position: absolute; top: 0; right: 0; width: 58px; height: 58px; border-top: 1px solid rgba(169,214,232,.15); border-right: 1px solid rgba(169,214,232,.15); border-radius: 0 10px 0 0; pointer-events: none; }
+    .director-card:hover { transform: translateY(-3px); border-color: rgba(169,214,232,.48); background: linear-gradient(135deg, rgba(169,214,232,.12), rgba(255,255,255,.035)); box-shadow: 0 12px 28px rgba(0,0,0,.13); }
+    .director-number { display: inline-flex; align-items: center; min-width: 39px; min-height: 25px; padding: 0 8px; border-left: 2px solid var(--gold); color: var(--sky); background: rgba(169,214,232,.075); font-size: 10px; font-weight: 900; letter-spacing: .13em; line-height: 1; }
+    .director-info { display: block; }
+    .director-info strong { display: block; color: var(--white); font-size: 14px; line-height: 1.35; letter-spacing: -.015em; }
+    .director-role { display: block; margin-top: 6px; color: #a9bfcb; font-size: 9px; font-weight: 800; letter-spacing: .09em; line-height: 1.5; text-transform: uppercase; }
     .people-functions { margin-top: 30px; padding-top: 24px; border-top: 1px solid rgba(169,214,232,.18); }
     .people-functions strong { display: block; margin-bottom: 13px; color: #d9e8ef; font-size: 11px; }
     .pill-wrap { display: flex; flex-wrap: wrap; gap: 7px; }
@@ -368,7 +372,7 @@
   <header class="site-header">
     <div class="container nav-wrap">
       <a class="brand" href="#home" aria-label="LDCS home">
-        <span class="brand-symbol">LDCS</span>
+        <img class="brand-logo" src="ldcs-official-logo.png" alt="Official Loeriesfontein Data Collection Specialists logo" width="54" height="58">
         <span class="brand-copy"><strong>LDCS</strong><small>Loeriesfontein Data Collection Specialists</small></span>
       </a>
       <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
@@ -640,10 +644,10 @@
               <img src="ldcs-directors-group.png" alt="The four directors of Loeriesfontein Data Collection Specialists together" loading="lazy" decoding="async">
             </figure>
             <div class="director-grid">
-              <div class="director-card"><span class="director-initial">VS</span><div><strong>Veronica Slaai</strong><span>Director</span></div></div>
-              <div class="director-card"><span class="director-initial">BP</span><div><strong>Breyton Philander</strong><span>Director</span></div></div>
-              <div class="director-card"><span class="director-initial">SL</span><div><strong>Shantel Lewis</strong><span>Director</span></div></div>
-              <div class="director-card"><span class="director-initial">MB</span><div><strong>Michal Beukes</strong><span>Director</span></div></div>
+              <article class="director-card"><span class="director-number">01</span><div class="director-info"><strong>Breyton Philander</strong><span class="director-role">IT, Reporting &amp; Compliance Director</span></div></article>
+              <article class="director-card"><span class="director-number">02</span><div class="director-info"><strong>Shantel Lewis</strong><span class="director-role">Managing Director</span></div></article>
+              <article class="director-card"><span class="director-number">03</span><div class="director-info"><strong>Michal Beukes</strong><span class="director-role">Marketing Director</span></div></article>
+              <article class="director-card"><span class="director-number">04</span><div class="director-info"><strong>Veronica Slaai</strong><span class="director-role">Director of Admin</span></div></article>
             </div>
             <div class="people-functions"><strong>We collectively manage</strong><div class="pill-wrap"><span class="pill">Monitoring & Evaluation</span><span class="pill">Research design</span><span class="pill">Data collection</span><span class="pill">Stakeholder engagement</span><span class="pill">Beneficiary interviews</span><span class="pill">Digital survey administration</span><span class="pill">Data quality assurance</span><span class="pill">Statistical processing</span><span class="pill">Project reporting</span><span class="pill">Impact assessments</span><span class="pill">Administration</span><span class="pill">Client liaison</span></div></div>
           </div>
