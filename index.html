@@ -1,1133 +1,856 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-ZA">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>LDCS | Loeriesfontein Data Collection Specialists</title>
-
-  <meta name="description" content="Loeriesfontein Data Collection Specialists provides community research, data collection, baseline assessments and monitoring, evaluation and reporting services.">
-
-  <meta name="theme-color" content="#102B46">
-
+  <meta name="theme-color" content="#0c263f">
+  <meta name="description" content="We are Loeriesfontein Data Collection Specialists (LDCS), a South African Monitoring, Evaluation, Research and Data Collection company based in the Northern Cape.">
+  <meta name="author" content="Loeriesfontein Data Collection Specialists (Pty) Ltd">
+  <title>LDCS | We turn community evidence into meaningful insight</title>
   <style>
     :root {
-      --navy: #102B46;
-      --navy-light: #193D5C;
-      --blue: #DCEBF2;
-      --white: #FFFFFF;
-      --text: #263746;
-      --muted: #667786;
-      --background: #F5F8FA;
-      --border: #E1E8ED;
-      --accent: #78AFCB;
+      --ink: #14283a;
+      --navy: #0c263f;
+      --navy-2: #153b59;
+      --navy-3: #1d4d6c;
+      --sky: #a9d6e8;
+      --ice: #eaf3f7;
+      --paper: #f7f9fa;
+      --white: #fff;
+      --muted: #657786;
+      --line: #dce5ea;
+      --teal: #5ea6b6;
+      --gold: #d8b878;
+      --radius: 18px;
+      --shadow: 0 22px 60px rgba(12,38,63,.10);
+      --max: 1200px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 96px; }
+    body { margin: 0; color: var(--ink); background: var(--white); font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.65; -webkit-font-smoothing: antialiased; }
+    body.menu-open { overflow: hidden; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    button { cursor: pointer; }
+    img, svg { max-width: 100%; }
+    .container { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
+    .eyebrow { display: inline-flex; gap: 10px; align-items: center; color: #79b5cb; font-size: 11px; font-weight: 800; letter-spacing: .19em; text-transform: uppercase; }
+    .eyebrow::before { content: ""; width: 27px; height: 1px; background: currentColor; }
+    .section-kicker { color: #528ba6; font-size: 11px; font-weight: 850; letter-spacing: .19em; text-transform: uppercase; margin: 0 0 15px; }
+    .section-title { max-width: 780px; margin: 0; color: var(--navy); font-size: clamp(34px, 5vw, 58px); line-height: 1.05; letter-spacing: -.045em; font-weight: 760; }
+    .section-intro { max-width: 660px; color: var(--muted); font-size: 16px; margin: 20px 0 0; }
+    .section-head { display: flex; justify-content: space-between; align-items: end; gap: 30px; margin-bottom: 48px; }
+    .section-head > div:first-child { max-width: 760px; }
+    .section-head .section-intro { max-width: 390px; margin-bottom: 4px; }
+    .button { min-height: 50px; display: inline-flex; justify-content: center; align-items: center; gap: 12px; padding: 0 21px; border: 1px solid transparent; border-radius: 7px; font-size: 13px; font-weight: 800; letter-spacing: .01em; transition: transform .25s ease, background .25s ease, border-color .25s ease, box-shadow .25s ease; }
+    .button:hover { transform: translateY(-3px); }
+    .button-primary { color: var(--navy); background: var(--white); box-shadow: 0 8px 24px rgba(0,0,0,.12); }
+    .button-primary:hover { box-shadow: 0 13px 30px rgba(0,0,0,.2); }
+    .button-dark { color: var(--white); background: var(--navy); }
+    .button-dark:hover { background: var(--navy-3); }
+    .button-outline { color: var(--white); border-color: rgba(255,255,255,.38); background: rgba(255,255,255,.04); }
+    .button-outline:hover { background: rgba(255,255,255,.12); border-color: rgba(255,255,255,.7); }
+    .button-arrow { width: 19px; height: 19px; transition: transform .25s ease; }
+    .button:hover .button-arrow { transform: translateX(4px); }
+
+    /* Navigation */
+    .site-header { position: sticky; top: 0; z-index: 1000; background: rgba(255,255,255,.94); border-bottom: 1px solid rgba(220,229,234,.8); backdrop-filter: blur(18px); }
+    .nav-wrap { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; flex-shrink: 0; }
+    .brand-symbol { width: 43px; height: 43px; display: grid; place-items: center; border-radius: 11px 11px 11px 3px; color: var(--white); background: var(--navy); font-size: 12px; font-weight: 900; letter-spacing: -.04em; box-shadow: 5px 5px 0 var(--sky); }
+    .brand-copy strong { display: block; color: var(--navy); font-size: 16px; letter-spacing: .12em; line-height: 1.1; }
+    .brand-copy small { display: block; margin-top: 5px; color: #70808c; font-size: 8px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+    .main-nav { display: flex; align-items: center; gap: 5px; }
+    .nav-link, .nav-trigger { display: inline-flex; align-items: center; gap: 7px; padding: 12px 11px; border: 0; border-radius: 7px; color: #31485b; background: transparent; font-size: 12px; font-weight: 750; transition: background .2s ease, color .2s ease; }
+    .nav-link:hover, .nav-trigger:hover, .nav-item:focus-within > .nav-trigger { color: var(--navy); background: var(--ice); }
+    .chevron { width: 12px; height: 12px; transition: transform .2s ease; }
+    .nav-item { position: relative; }
+    .nav-dropdown { position: absolute; top: calc(100% + 12px); left: 0; width: 245px; padding: 10px; border: 1px solid var(--line); border-radius: 12px; background: var(--white); box-shadow: 0 18px 50px rgba(12,38,63,.14); opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .2s ease, transform .2s ease, visibility .2s; }
+    .nav-item:hover .nav-dropdown, .nav-item:focus-within .nav-dropdown, .nav-item.open .nav-dropdown { opacity: 1; visibility: visible; transform: translateY(0); }
+    .nav-item:hover .chevron, .nav-item.open .chevron { transform: rotate(180deg); }
+    .nav-dropdown a { display: block; padding: 10px 12px; border-radius: 7px; color: #435767; font-size: 12px; font-weight: 700; }
+    .nav-dropdown a:hover { color: var(--navy); background: var(--ice); }
+    .nav-cta { margin-left: 10px; padding: 12px 17px; color: var(--white); background: var(--navy); border-radius: 7px; font-size: 12px; font-weight: 800; transition: background .2s, transform .2s; }
+    .nav-cta:hover { background: var(--navy-3); transform: translateY(-2px); }
+    .menu-toggle { display: none; width: 44px; height: 44px; place-items: center; border: 1px solid var(--line); border-radius: 9px; background: var(--white); color: var(--navy); }
+
+    /* Hero */
+    .hero { position: relative; overflow: hidden; min-height: 690px; display: flex; align-items: center; color: var(--white); background: radial-gradient(ellipse at 78% 38%, rgba(87,151,178,.34), transparent 31%), radial-gradient(ellipse at 8% 90%, rgba(48,106,133,.25), transparent 38%), linear-gradient(116deg, #092239 0%, #0c2b46 52%, #17445f 100%); }
+    .hero::before { content: ""; position: absolute; inset: 0; opacity: .17; background-image: linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px); background-size: 56px 56px; mask-image: linear-gradient(90deg, black, transparent 88%); }
+    .hero::after { content: ""; position: absolute; width: 620px; height: 620px; right: -220px; top: -250px; border: 1px solid rgba(169,214,232,.18); border-radius: 50%; box-shadow: 0 0 0 55px rgba(169,214,232,.025), 0 0 0 110px rgba(169,214,232,.02); }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 45px; padding-top: 75px; padding-bottom: 90px; }
+    .hero-copy { max-width: 690px; }
+    .hero h1 { margin: 24px 0 23px; font-size: clamp(45px, 6vw, 76px); line-height: .99; letter-spacing: -.058em; font-weight: 780; }
+    .hero h1 em { color: var(--sky); font-style: normal; }
+    .hero-copy > p { max-width: 590px; color: #d6e4eb; font-size: 17px; line-height: 1.8; margin: 0 0 32px; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-footnote { margin-top: 38px; display: flex; align-items: center; gap: 13px; color: #b6cbd6; font-size: 11px; letter-spacing: .03em; }
+    .hero-footnote::before { content: ""; width: 30px; height: 1px; background: var(--sky); }
+    .hero-visual { position: relative; min-height: 470px; display: grid; place-items: center; }
+    .orbit { position: absolute; width: min(430px, 90%); aspect-ratio: 1; border: 1px solid rgba(169,214,232,.24); border-radius: 50%; animation: orbit-rotate 36s linear infinite; }
+    .orbit::before, .orbit::after { content: ""; position: absolute; inset: 33px; border: 1px dashed rgba(169,214,232,.18); border-radius: 50%; }
+    .orbit::after { inset: 84px; border-style: solid; opacity: .6; }
+    .orbit-dot { position: absolute; width: 12px; height: 12px; top: 18%; left: 13%; border-radius: 50%; background: var(--sky); box-shadow: 0 0 20px rgba(169,214,232,.9); }
+    .orbit-dot.two { top: auto; bottom: 13%; left: auto; right: 20%; width: 8px; height: 8px; background: var(--gold); box-shadow: 0 0 18px rgba(216,184,120,.8); }
+    .visual-core { position: relative; z-index: 2; width: 235px; height: 235px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.26); border-radius: 50%; background: radial-gradient(circle at 35% 28%, rgba(169,214,232,.25), transparent 62%), rgba(8,31,50,.65); box-shadow: 0 25px 80px rgba(0,0,0,.25), inset 0 0 45px rgba(169,214,232,.08); }
+    .visual-core svg { width: 146px; filter: drop-shadow(0 8px 25px rgba(92,180,205,.18)); }
+    .float-card { position: absolute; z-index: 3; padding: 15px 17px; border: 1px solid rgba(255,255,255,.17); border-radius: 11px; background: rgba(12,38,63,.78); box-shadow: 0 16px 36px rgba(0,0,0,.2); backdrop-filter: blur(13px); animation: float 6s ease-in-out infinite; }
+    .float-card small { display: block; color: #9fbac9; font-size: 9px; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; }
+    .float-card strong { display: block; margin-top: 4px; color: var(--white); font-size: 23px; line-height: 1.2; }
+    .float-card span { color: #bcd0db; font-size: 10px; }
+    .float-card.card-a { top: 57px; left: 0; }
+    .float-card.card-b { right: -1px; bottom: 72px; animation-delay: -2.5s; }
+    .float-card.card-c { right: 13px; top: 60px; padding: 12px 14px; animation-delay: -1.2s; }
+    .mini-bars { display: flex; align-items: end; gap: 4px; height: 28px; margin-top: 8px; }
+    .mini-bars i { display: block; width: 6px; border-radius: 3px 3px 1px 1px; background: var(--sky); }
+    .mini-bars i:nth-child(1) { height: 10px; opacity: .55; }.mini-bars i:nth-child(2) { height: 17px; opacity: .7; }.mini-bars i:nth-child(3) { height: 13px; opacity: .6; }.mini-bars i:nth-child(4) { height: 25px; }.mini-bars i:nth-child(5) { height: 21px; opacity: .8; }
+    @keyframes orbit-rotate { to { transform: rotate(360deg); } }
+    @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-11px); } }
+
+    /* Proof strip */
+    .proof-strip { position: relative; z-index: 4; margin-top: -1px; background: var(--ice); }
+    .proof-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .proof-item { padding: 28px 23px 30px; border-right: 1px solid #d4e2e9; }
+    .proof-item:first-child { border-left: 1px solid #d4e2e9; }
+    .proof-value { display: block; color: var(--navy); font-size: clamp(29px, 3.5vw, 42px); line-height: 1.1; font-weight: 800; letter-spacing: -.05em; }
+    .proof-label { display: block; margin-top: 8px; color: #5f7482; font-size: 10px; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
+    .proof-note { display: block; margin-top: 5px; color: #71838e; font-size: 10px; }
+
+    /* Story / about */
+    .story-section { padding: 125px 0; }
+    .story-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 95px; align-items: start; }
+    .story-aside { position: sticky; top: 125px; }
+    .story-aside .section-title { font-size: clamp(37px, 4.7vw, 57px); }
+    .story-aside .vertical-tag { display: inline-flex; margin-top: 40px; padding: 11px 15px; border-left: 2px solid var(--teal); color: #536a79; background: var(--paper); font-size: 11px; font-weight: 750; letter-spacing: .06em; }
+    .story-content p { margin: 0 0 20px; color: #607382; font-size: 16px; line-height: 1.9; }
+    .story-content p.lead { color: var(--navy); font-size: 21px; line-height: 1.6; font-weight: 550; letter-spacing: -.02em; }
+    .story-highlight { margin-top: 34px; display: grid; grid-template-columns: 44px 1fr; gap: 17px; padding: 23px; border: 1px solid var(--line); border-radius: 12px; background: var(--paper); }
+    .story-highlight .icon-box { width: 44px; height: 44px; display: grid; place-items: center; border-radius: 10px; color: var(--navy); background: var(--ice); }
+    .story-highlight strong { display: block; color: var(--navy); font-size: 14px; margin-bottom: 4px; }
+    .story-highlight span { color: var(--muted); font-size: 12px; }
+
+    /* Capability panel */
+    .capabilities { padding: 112px 0 120px; background: var(--paper); }
+    .capability-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .cap-card { position: relative; min-height: 255px; padding: 25px 23px; overflow: hidden; border: 1px solid var(--line); border-radius: 13px; background: var(--white); transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease; }
+    .cap-card:hover { transform: translateY(-6px); border-color: #b9d2de; box-shadow: var(--shadow); }
+    .cap-card .cap-no { color: #78a7bb; font-size: 10px; font-weight: 900; letter-spacing: .16em; }
+    .cap-icon { width: 48px; height: 48px; display: grid; place-items: center; margin: 26px 0 22px; color: var(--navy); border-radius: 13px; background: var(--ice); }
+    .cap-icon svg { width: 23px; height: 23px; }
+    .cap-card h3 { margin: 0 0 9px; color: var(--navy); font-size: 17px; line-height: 1.25; letter-spacing: -.02em; }
+    .cap-card p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.7; }
+    .cap-card .card-link { position: absolute; right: 20px; bottom: 18px; color: #5c91a8; font-size: 17px; transition: transform .2s; }
+    .cap-card:hover .card-link { transform: translateX(4px); }
+
+    /* service detail / filter */
+    .service-detail { padding: 120px 0; }
+    .service-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 36px 0 22px; }
+    .service-tab { padding: 11px 16px; border: 1px solid var(--line); border-radius: 99px; color: #607382; background: var(--white); font-size: 11px; font-weight: 800; transition: all .2s ease; }
+    .service-tab:hover, .service-tab[aria-selected="true"] { color: var(--white); border-color: var(--navy); background: var(--navy); }
+    .service-panel { display: grid; grid-template-columns: .78fr 1.22fr; gap: 45px; padding: 42px; border-radius: 16px; color: var(--white); background: linear-gradient(125deg, var(--navy), #174563); min-height: 300px; }
+    .service-panel h3 { margin: 0 0 14px; font-size: clamp(24px, 3vw, 34px); line-height: 1.1; letter-spacing: -.04em; }
+    .service-panel .panel-desc { margin: 0; color: #c9dbe4; font-size: 13px; line-height: 1.8; }
+    .service-list { display: grid; grid-template-columns: 1fr 1fr; align-content: start; gap: 10px 24px; }
+    .service-list span { position: relative; padding: 0 0 10px 19px; border-bottom: 1px solid rgba(255,255,255,.12); color: #edf4f7; font-size: 12px; }
+    .service-list span::before { content: ""; position: absolute; top: 8px; left: 0; width: 6px; height: 6px; border-radius: 50%; background: var(--sky); }
+
+    /* Flagship project */
+    .project-section { padding: 112px 0; overflow: hidden; color: var(--white); background: var(--navy); }
+    .project-section .section-kicker { color: var(--sky); }
+    .project-section .section-title { color: var(--white); }
+    .project-section .section-intro { color: #c2d4de; }
+    .project-layout { display: grid; grid-template-columns: 1fr .92fr; gap: 70px; align-items: center; }
+    .project-story h3 { max-width: 620px; margin: 0 0 22px; font-size: clamp(34px, 4.4vw, 53px); line-height: 1.06; letter-spacing: -.05em; }
+    .project-story p { max-width: 600px; color: #c6d7e0; font-size: 14px; line-height: 1.85; }
+    .project-meta { display: flex; gap: 26px; flex-wrap: wrap; margin-top: 32px; }
+    .project-meta div { border-left: 1px solid rgba(169,214,232,.4); padding-left: 13px; }
+    .project-meta strong { display: block; color: var(--sky); font-size: 15px; }
+    .project-meta span { color: #b9cbd5; font-size: 10px; }
+    .project-visual { position: relative; min-height: 430px; display: grid; place-items: center; }
+    .data-orbit { position: absolute; width: 380px; height: 380px; border: 1px solid rgba(169,214,232,.27); border-radius: 50%; }
+    .data-orbit::before { content: ""; position: absolute; inset: 35px; border: 1px dashed rgba(169,214,232,.25); border-radius: 50%; }
+    .data-orbit::after { content: ""; position: absolute; inset: 90px; border: 1px solid rgba(169,214,232,.16); border-radius: 50%; }
+    .project-number { position: relative; z-index: 2; width: 250px; height: 250px; display: flex; flex-direction: column; justify-content: center; align-items: center; border-radius: 50%; background: radial-gradient(circle at 35% 25%, #2a5c78, #102d48 70%); border: 1px solid rgba(169,214,232,.4); box-shadow: 0 0 0 18px rgba(169,214,232,.035), 0 0 70px rgba(81,157,185,.22); }
+    .project-number strong { color: var(--white); font-size: 78px; line-height: 1; letter-spacing: -.08em; }
+    .project-number span { max-width: 135px; margin-top: 10px; color: #c9dce6; font-size: 10px; text-align: center; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+    .satellite { position: absolute; z-index: 3; padding: 12px 14px; border: 1px solid rgba(255,255,255,.15); border-radius: 9px; color: #dceaf0; background: #173d59; font-size: 10px; box-shadow: 0 12px 35px rgba(0,0,0,.2); }
+    .satellite.one { top: 30px; left: 0; }.satellite.two { right: 0; bottom: 42px; }.satellite.three { top: 60px; right: 8px; }
+    .satellite b { display: block; color: var(--sky); font-size: 13px; }
+    .privacy-note { display: grid; grid-template-columns: 42px 1fr; gap: 15px; margin-top: 35px; padding: 18px 20px; border: 1px solid rgba(169,214,232,.2); border-radius: 11px; background: rgba(255,255,255,.045); }
+    .privacy-note .lock { width: 42px; height: 42px; display: grid; place-items: center; border-radius: 10px; color: var(--sky); background: rgba(169,214,232,.1); }
+    .privacy-note strong { display: block; color: var(--white); font-size: 12px; margin-bottom: 3px; }
+    .privacy-note p { margin: 0; color: #b9cdd8; font-size: 11px; line-height: 1.7; }
+
+    /* Scope section */
+    .scope-section { padding: 110px 0; background: var(--ice); }
+    .scope-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 65px; align-items: center; }
+    .scope-copy .section-title { font-size: clamp(34px, 4.5vw, 52px); }
+    .scope-copy p { color: #647887; font-size: 14px; line-height: 1.85; }
+    .scope-widget { padding: 34px; border: 1px solid #d2e2e9; border-radius: 16px; background: rgba(255,255,255,.85); box-shadow: 0 15px 45px rgba(15,54,79,.07); }
+    .scope-widget-head { display: flex; justify-content: space-between; align-items: start; gap: 20px; }
+    .scope-widget-head small { display: block; color: #6d8493; font-size: 10px; font-weight: 850; letter-spacing: .15em; text-transform: uppercase; }
+    .scope-number { color: var(--navy); font-size: 47px; line-height: 1.1; font-weight: 850; letter-spacing: -.06em; }
+    .scope-number span { font-size: 17px; color: #7192a4; }
+    .scope-range { width: 100%; margin: 28px 0 12px; accent-color: var(--navy); cursor: pointer; }
+    .range-ends { display: flex; justify-content: space-between; color: #78909e; font-size: 10px; font-weight: 750; }
+    .scope-scale { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; margin-top: 27px; }
+    .scale-cell { padding: 12px; border-radius: 8px; background: var(--paper); }
+    .scale-cell b { display: block; color: var(--navy); font-size: 17px; }
+    .scale-cell span { display: block; color: #728591; font-size: 9px; }
+    .scope-disclaimer { margin: 17px 0 0; color: #7a8c96; font-size: 10px; line-height: 1.6; }
+
+    /* Sectors */
+    .sectors-section { padding: 115px 0; }
+    .sector-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .sector-card { position: relative; min-height: 205px; padding: 25px; overflow: hidden; border: 1px solid var(--line); border-radius: 13px; background: var(--white); transition: transform .25s, box-shadow .25s; }
+    .sector-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+    .sector-card::after { content: ""; position: absolute; width: 125px; height: 125px; right: -45px; bottom: -45px; border: 1px solid #d7e8ee; border-radius: 50%; box-shadow: 0 0 0 15px #f4f9fb, 0 0 0 29px #f9fbfc; }
+    .sector-mark { width: 37px; height: 37px; display: grid; place-items: center; color: #4a829b; background: var(--ice); border-radius: 10px; font-weight: 900; font-size: 13px; }
+    .sector-card h3 { position: relative; z-index: 1; margin: 18px 0 8px; color: var(--navy); font-size: 17px; }
+    .sector-card p { position: relative; z-index: 1; max-width: 290px; margin: 0; color: var(--muted); font-size: 11px; line-height: 1.75; }
+    .sector-card .sector-tag { display: inline-block; margin-top: 17px; color: #528ba6; font-size: 9px; font-weight: 850; letter-spacing: .12em; text-transform: uppercase; }
+
+    /* Method */
+    .method-section { padding: 115px 0; background: var(--paper); }
+    .method-layout { display: grid; grid-template-columns: .72fr 1.28fr; gap: 70px; align-items: start; }
+    .method-intro { position: sticky; top: 125px; }
+    .method-intro .section-title { font-size: clamp(34px, 4.2vw, 50px); }
+    .method-intro p { color: var(--muted); font-size: 14px; line-height: 1.8; }
+    .method-list { border-top: 1px solid var(--line); }
+    .method-step { border-bottom: 1px solid var(--line); }
+    .method-trigger { width: 100%; display: grid; grid-template-columns: 48px 1fr 30px; align-items: center; gap: 15px; padding: 23px 0; text-align: left; border: 0; background: transparent; }
+    .method-index { color: #6d9eb2; font-size: 12px; font-weight: 900; letter-spacing: .1em; }
+    .method-trigger strong { display: block; color: var(--navy); font-size: 17px; }
+    .method-trigger small { display: block; margin-top: 4px; color: #82919a; font-size: 10px; }
+    .method-plus { width: 28px; height: 28px; display: grid; place-items: center; border: 1px solid #d4e0e6; border-radius: 50%; color: var(--navy); font-size: 18px; transition: all .2s; }
+    .method-step.active .method-plus { color: var(--white); border-color: var(--navy); background: var(--navy); transform: rotate(45deg); }
+    .method-content { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .35s ease; }
+    .method-content-inner { overflow: hidden; }
+    .method-step.active .method-content { grid-template-rows: 1fr; }
+    .method-content ul { display: grid; grid-template-columns: 1fr 1fr; gap: 9px 24px; margin: 0; padding: 0 20px 25px 63px; list-style: none; }
+    .method-content li { position: relative; color: #647887; font-size: 11px; }
+    .method-content li::before { content: ""; position: absolute; left: -14px; top: 8px; width: 5px; height: 5px; border-radius: 50%; background: var(--teal); }
+
+    /* Development */
+    .development-section { padding: 112px 0; }
+    .development-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
+    .development-card { position: relative; padding: 28px; border-radius: 13px; border: 1px solid var(--line); background: var(--white); }
+    .development-card .year-label { display: inline-block; padding: 6px 9px; border-radius: 5px; color: #4c8199; background: var(--ice); font-size: 9px; font-weight: 850; letter-spacing: .1em; text-transform: uppercase; }
+    .development-card h3 { color: var(--navy); margin: 17px 0 11px; font-size: 20px; }
+    .development-card p { color: var(--muted); font-size: 12px; line-height: 1.8; }
+    .development-card ul { margin: 17px 0 0; padding-left: 17px; color: #526a79; font-size: 11px; line-height: 2; }
+    .development-note { margin-top: 26px; padding: 18px 22px; border-left: 3px solid var(--teal); background: var(--paper); color: #607382; font-size: 11px; }
+
+    /* Governance / people */
+    .people-section { padding: 112px 0; background: var(--navy); color: var(--white); }
+    .people-section .section-kicker { color: var(--sky); }
+    .people-section .section-title { color: var(--white); }
+    .people-section .section-intro { color: #bfd0da; }
+    .people-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 65px; align-items: start; margin-top: 45px; }
+    .leadership-photo { margin: 0 0 14px; overflow: hidden; border: 1px solid rgba(169,214,232,.2); border-radius: 12px; background: rgba(255,255,255,.04); box-shadow: 0 16px 34px rgba(0,0,0,.16); }
+    .leadership-photo img { display: block; width: 100%; height: auto; }
+    .people-statement { padding: 28px; border: 1px solid rgba(169,214,232,.2); border-radius: 14px; background: rgba(255,255,255,.045); }
+    .people-statement .big-four { color: var(--sky); font-size: 76px; line-height: 1; font-weight: 850; letter-spacing: -.08em; }
+    .people-statement h3 { margin: 15px 0 10px; color: var(--white); font-size: 19px; }
+    .people-statement p { color: #bfd0da; font-size: 12px; line-height: 1.8; }
+    .director-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .director-card { min-height: 105px; display: flex; align-items: center; gap: 13px; padding: 16px; border: 1px solid rgba(169,214,232,.18); border-radius: 10px; background: rgba(255,255,255,.04); }
+    .director-initial { width: 39px; height: 39px; flex: 0 0 auto; display: grid; place-items: center; border-radius: 50%; color: var(--navy); background: var(--sky); font-size: 11px; font-weight: 900; }
+    .director-card strong { display: block; color: var(--white); font-size: 12px; line-height: 1.35; }
+    .director-card span { display: block; margin-top: 4px; color: #a9bfcb; font-size: 9px; }
+    .people-functions { margin-top: 30px; padding-top: 24px; border-top: 1px solid rgba(169,214,232,.18); }
+    .people-functions strong { display: block; margin-bottom: 13px; color: #d9e8ef; font-size: 11px; }
+    .pill-wrap { display: flex; flex-wrap: wrap; gap: 7px; }
+    .pill { padding: 7px 10px; border: 1px solid rgba(169,214,232,.2); border-radius: 99px; color: #c4d5de; font-size: 9px; }
+
+    /* Ethics */
+    .ethics-section { padding: 110px 0; }
+    .ethics-panel { position: relative; display: grid; grid-template-columns: .72fr 1.28fr; gap: 60px; padding: 54px; overflow: hidden; border-radius: 17px; background: var(--ice); }
+    .ethics-panel::after { content: ""; position: absolute; width: 300px; height: 300px; right: -110px; bottom: -170px; border: 1px solid #c6dfe9; border-radius: 50%; box-shadow: 0 0 0 30px rgba(255,255,255,.35), 0 0 0 65px rgba(255,255,255,.25); }
+    .ethics-icon { width: 76px; height: 76px; display: grid; place-items: center; border-radius: 20px; color: var(--navy); background: var(--white); box-shadow: 0 10px 30px rgba(12,38,63,.08); }
+    .ethics-icon svg { width: 36px; height: 36px; }
+    .ethics-panel h2 { margin: 0 0 16px; color: var(--navy); font-size: clamp(29px, 4vw, 43px); line-height: 1.08; letter-spacing: -.045em; }
+    .ethics-panel p { position: relative; z-index: 1; margin: 0 0 15px; color: #5c7180; font-size: 13px; line-height: 1.85; }
+    .ethics-quote { position: relative; z-index: 1; margin-top: 24px; padding-left: 17px; border-left: 2px solid var(--teal); color: var(--navy); font-size: 16px; font-weight: 700; line-height: 1.6; }
+
+    /* Portfolio */
+    .portfolio-section { padding: 112px 0; background: var(--paper); }
+    .portfolio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .portfolio-card { padding: 30px; border: 1px solid var(--line); border-radius: 13px; background: var(--white); }
+    .portfolio-card .overline { color: #6597ad; font-size: 9px; font-weight: 900; letter-spacing: .15em; text-transform: uppercase; }
+    .portfolio-card h3 { margin: 13px 0 10px; color: var(--navy); font-size: 21px; }
+    .portfolio-card p { color: var(--muted); font-size: 12px; line-height: 1.8; }
+    .portfolio-card ul { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 20px; margin: 18px 0 0; padding: 0; list-style: none; }
+    .portfolio-card li { color: #526a79; font-size: 11px; }
+    .portfolio-card li::before { content: "↗"; margin-right: 7px; color: #6597ad; font-weight: 900; }
+    .portfolio-bottom { margin-top: 20px; padding: 20px 24px; border-radius: 10px; color: #dce8ef; background: var(--navy); font-size: 11px; line-height: 1.8; }
+
+    /* Contact */
+    .contact-section { position: relative; overflow: hidden; padding: 112px 0 75px; color: var(--white); background: linear-gradient(120deg, #0a2238, #133c59); }
+    .contact-section::before { content: ""; position: absolute; width: 520px; height: 520px; right: -200px; top: -260px; border: 1px solid rgba(169,214,232,.16); border-radius: 50%; box-shadow: 0 0 0 55px rgba(169,214,232,.025), 0 0 0 110px rgba(169,214,232,.02); }
+    .contact-layout { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr .9fr; gap: 70px; align-items: start; }
+    .contact-section .section-kicker { color: var(--sky); }
+    .contact-section .section-title { max-width: 630px; color: var(--white); }
+    .contact-section .section-intro { color: #c5d8e2; }
+    .contact-card { padding: 30px; border: 1px solid rgba(255,255,255,.17); border-radius: 14px; background: rgba(255,255,255,.06); backdrop-filter: blur(10px); }
+    .contact-line { padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,.12); }
+    .contact-line:last-child { border-bottom: 0; }
+    .contact-line small { display: block; color: #8fbdd0; font-size: 9px; font-weight: 850; letter-spacing: .15em; text-transform: uppercase; }
+    .contact-line a, .contact-line span { display: inline-block; margin-top: 5px; color: var(--white); font-size: 13px; overflow-wrap: anywhere; }
+    .contact-line a:hover { color: var(--sky); }
+    .contact-cta { margin-top: 24px; }
+    .footer { position: relative; z-index: 1; margin-top: 85px; padding-top: 25px; border-top: 1px solid rgba(255,255,255,.16); display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; color: #9eb4c1; font-size: 10px; }
+    .footer strong { color: var(--white); letter-spacing: .12em; }
+    .back-top { position: fixed; z-index: 500; right: 22px; bottom: 22px; width: 44px; height: 44px; display: grid; place-items: center; border: 0; border-radius: 50%; color: var(--white); background: var(--navy); box-shadow: 0 8px 25px rgba(12,38,63,.23); opacity: 0; visibility: hidden; transform: translateY(10px); transition: all .25s; }
+    .back-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    .back-top:hover { background: var(--navy-3); }
+    .scroll-progress { position: fixed; z-index: 1100; top: 0; left: 0; width: 0; height: 3px; background: var(--teal); }
+
+    /* Reveal transitions */
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .75s ease, transform .75s cubic-bezier(.2,.7,.2,1); }
+    .reveal.in-view { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: .08s; }.delay-2 { transition-delay: .16s; }.delay-3 { transition-delay: .24s; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+
+    /* Responsive */
+    @media (max-width: 1040px) {
+      .main-nav { gap: 0; }.nav-link, .nav-trigger { padding: 11px 8px; font-size: 11px; }.nav-cta { padding: 11px 13px; }
+      .hero-grid { gap: 15px; }.hero-visual { transform: scale(.92); }
+      .capability-grid { grid-template-columns: repeat(2, 1fr); }
+      .story-grid { gap: 55px; }
+    }
+    @media (max-width: 800px) {
+      .container { width: min(var(--max), calc(100% - 38px)); }
+      .nav-wrap { min-height: 72px; }.menu-toggle { display: grid; }
+      .main-nav { position: fixed; top: 72px; left: 0; right: 0; bottom: 0; display: block; padding: 18px 22px 35px; overflow-y: auto; background: rgba(255,255,255,.985); transform: translateX(100%); transition: transform .28s ease; }
+      .main-nav.mobile-open { transform: translateX(0); }
+      .main-nav > .nav-link, .main-nav > .nav-item, .main-nav > .nav-cta { display: block; width: 100%; margin: 0; }
+      .nav-link, .nav-trigger { width: 100%; justify-content: space-between; padding: 15px 12px; font-size: 14px; text-align: left; }
+      .nav-dropdown { position: static; display: none; width: 100%; margin: 0 0 8px; padding: 6px; border-radius: 8px; box-shadow: none; opacity: 1; visibility: visible; transform: none; background: var(--paper); }
+      .nav-item.open .nav-dropdown { display: block; }
+      .nav-item:hover .nav-dropdown { opacity: 0; visibility: hidden; }
+      .nav-item.open:hover .nav-dropdown, .nav-item.open .nav-dropdown { opacity: 1; visibility: visible; }
+      .nav-cta { margin-top: 15px !important; padding: 15px 17px; text-align: center; }
+      .hero { min-height: 0; }.hero-grid { grid-template-columns: 1fr; padding-top: 78px; padding-bottom: 65px; }.hero-copy { max-width: 690px; }.hero-visual { min-height: 390px; margin-top: 15px; transform: none; }
+      .story-grid, .scope-grid, .method-layout, .people-grid, .ethics-panel, .contact-layout { grid-template-columns: 1fr; gap: 38px; }
+      .story-aside, .method-intro { position: static; }
+      .section-head { display: block; }.section-head .section-intro { margin-top: 16px; }
+      .project-layout { grid-template-columns: 1fr; gap: 28px; }.project-visual { min-height: 390px; }
+      .development-grid { grid-template-columns: 1fr 1fr; }
+      .people-grid { gap: 25px; }
+      .ethics-panel { padding: 35px; }
+      .contact-layout { gap: 35px; }
     }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      scroll-padding-top: 85px;
-    }
-
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      color: var(--text);
-      background: var(--white);
-      line-height: 1.7;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      width: min(1120px, 90%);
-      margin: auto;
-    }
-
-    /* HEADER */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: var(--white);
-      box-shadow: 0 2px 12px rgba(16, 43, 70, 0.08);
-    }
-
-    .navbar {
-      min-height: 78px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 25px;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--navy);
-    }
-
-    .logo-mark {
-      width: 46px;
-      height: 46px;
-      display: grid;
-      place-items: center;
-      background: var(--navy);
-      color: var(--white);
-      font-weight: 800;
-      font-size: 17px;
-      letter-spacing: 1px;
-      border-radius: 8px;
-    }
-
-    .logo-text strong {
-      display: block;
-      font-size: 17px;
-      letter-spacing: 1px;
-      line-height: 1.3;
-    }
-
-    .logo-text span {
-      display: block;
-      font-size: 10px;
-      letter-spacing: 1.5px;
-      color: var(--muted);
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-size: 13px;
-      font-weight: 700;
-      color: var(--navy);
-      transition: color 0.2s;
-    }
-
-    .nav-links a:hover {
-      color: #5794B5;
-    }
-
-    .nav-contact {
-      background: var(--navy);
-      color: var(--white) !important;
-      padding: 11px 19px;
-      border-radius: 5px;
-    }
-
-    .menu-toggle {
-      display: none;
-      border: 0;
-      background: transparent;
-      color: var(--navy);
-      font-size: 28px;
-      cursor: pointer;
-    }
-
-    /* HERO */
-
-    .hero {
-      background:
-        radial-gradient(circle at 85% 20%, rgba(120,175,203,0.22), transparent 30%),
-        linear-gradient(120deg, var(--navy), #193D5C);
-      color: var(--white);
-      padding: 105px 0 110px;
-      overflow: hidden;
-    }
-
-    .hero-content {
-      max-width: 750px;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      color: #B8D9E9;
-      font-size: 12px;
-      font-weight: bold;
-      letter-spacing: 3px;
-      margin-bottom: 22px;
-    }
-
-    .hero h1 {
-      font-size: clamp(38px, 6vw, 66px);
-      line-height: 1.12;
-      margin-bottom: 24px;
-      max-width: 720px;
-    }
-
-    .hero p {
-      max-width: 620px;
-      color: #E0EAF0;
-      font-size: 17px;
-      margin-bottom: 32px;
-    }
-
-    .hero-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 13px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 13px 23px;
-      border-radius: 5px;
-      font-size: 14px;
-      font-weight: bold;
-      transition: 0.2s;
-    }
-
-    .button-light {
-      background: var(--white);
-      color: var(--navy);
-    }
-
-    .button-outline {
-      border: 1px solid rgba(255,255,255,0.65);
-      color: var(--white);
-    }
-
-    .button:hover {
-      transform: translateY(-2px);
-    }
-
-    /* INTRO STRIP */
-
-    .intro-strip {
-      background: var(--blue);
-      padding: 22px 0;
-    }
-
-    .intro-strip p {
-      text-align: center;
-      color: var(--navy);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 3px;
-    }
-
-    /* GENERAL SECTIONS */
-
-    section {
-      padding: 85px 0;
-    }
-
-    .section-heading {
-      max-width: 680px;
-      margin-bottom: 42px;
-    }
-
-    .section-label {
-      color: #5286A3;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .section-heading h2 {
-      color: var(--navy);
-      font-size: clamp(28px, 4vw, 39px);
-      line-height: 1.2;
-      margin-bottom: 16px;
-    }
-
-    .section-heading p {
-      color: var(--muted);
-    }
-
-    /* ABOUT */
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 55px;
-      align-items: center;
-    }
-
-    .about-copy p {
-      margin-bottom: 17px;
-      color: var(--muted);
-    }
-
-    .about-panel {
-      background: var(--navy);
-      color: var(--white);
-      padding: 38px;
-      border-radius: 8px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .about-panel::after {
-      content: "";
-      position: absolute;
-      width: 180px;
-      height: 180px;
-      border: 1px solid rgba(255,255,255,0.15);
-      border-radius: 50%;
-      right: -55px;
-      bottom: -75px;
-    }
-
-    .about-panel h3 {
-      font-size: 23px;
-      margin-bottom: 15px;
-    }
-
-    .about-panel p {
-      color: #DCE8EF;
-      font-size: 14px;
-    }
-
-    .about-panel .small-label {
-      display: block;
-      margin-top: 28px;
-      color: #A8CFE2;
-      font-size: 11px;
-      font-weight: bold;
-      letter-spacing: 2px;
-    }
-
-    /* SERVICES */
-
-    .services-section {
-      background: var(--background);
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .service-card {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 28px;
-      transition: 0.25s;
-    }
-
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 30px rgba(16,43,70,0.08);
-    }
-
-    .service-number {
-      color: #6B9DB8;
-      font-size: 13px;
-      font-weight: 800;
-      letter-spacing: 2px;
-    }
-
-    .service-card h3 {
-      color: var(--navy);
-      font-size: 18px;
-      margin: 15px 0 10px;
-    }
-
-    .service-card p {
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    /* PROJECTS */
-
-    .project-card {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      background: var(--navy);
-      color: var(--white);
-      border-radius: 9px;
-      overflow: hidden;
-    }
-
-    .project-content {
-      padding: 42px;
-    }
-
-    .project-content .section-label {
-      color: #A8CFE2;
-    }
-
-    .project-content h3 {
-      font-size: 27px;
-      line-height: 1.25;
-      margin-bottom: 18px;
-    }
-
-    .project-content p {
-      color: #DCE8EF;
-      font-size: 14px;
-      margin-bottom: 15px;
-    }
-
-    .project-stat {
-      background: #193D5C;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 40px;
-    }
-
-    .project-stat strong {
-      font-size: clamp(48px, 7vw, 70px);
-      line-height: 1.1;
-      color: #B8D9E9;
-    }
-
-    .project-stat span {
-      font-size: 13px;
-      letter-spacing: 2px;
-      margin-top: 12px;
-      color: #E0EAF0;
-      text-transform: uppercase;
-    }
-
-    /* APPROACH */
-
-    .approach-section {
-      background: var(--blue);
-    }
-
-    .approach-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 20px;
-    }
-
-    .approach-item {
-      padding: 10px;
-    }
-
-    .approach-item strong {
-      display: block;
-      color: var(--navy);
-      font-size: 18px;
-      margin-bottom: 8px;
-    }
-
-    .approach-item p {
-      color: #526575;
-      font-size: 14px;
-    }
-
-    /* TEAM AND PUBLICATIONS */
-
-    .two-column {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 25px;
-    }
-
-    .info-card {
-      border: 1px solid var(--border);
-      padding: 32px;
-      border-radius: 8px;
-      background: var(--white);
-    }
-
-    .info-card h3 {
-      color: var(--navy);
-      font-size: 21px;
-      margin-bottom: 12px;
-    }
-
-    .info-card p {
-      color: var(--muted);
-      font-size: 14px;
-      margin-bottom: 15px;
-    }
-
-    .info-card .note {
-      background: var(--background);
-      padding: 13px;
-      border-left: 3px solid var(--accent);
-      font-size: 12px;
-    }
-
-    /* CONTACT */
-
-    .contact-section {
-      background: var(--navy);
-      color: var(--white);
-    }
-
-    .contact-section .section-heading h2 {
-      color: var(--white);
-    }
-
-    .contact-section .section-heading p {
-      color: #DCE8EF;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 35px;
-    }
-
-    .contact-details {
-      display: grid;
-      gap: 22px;
-    }
-
-    .contact-item strong {
-      display: block;
-      color: #A8CFE2;
-      font-size: 12px;
-      letter-spacing: 2px;
-      margin-bottom: 5px;
-    }
-
-    .contact-item p,
-    .contact-item a {
-      color: var(--white);
-      font-size: 15px;
-      overflow-wrap: anywhere;
-    }
-
-    .contact-item a:hover {
-      text-decoration: underline;
-    }
-
-    .contact-message {
-      background: #193D5C;
-      padding: 32px;
-      border-radius: 8px;
-      align-self: start;
-    }
-
-    .contact-message h3 {
-      font-size: 22px;
-      margin-bottom: 12px;
-    }
-
-    .contact-message p {
-      color: #DCE8EF;
-      font-size: 14px;
-      margin-bottom: 22px;
-    }
-
-    /* FOOTER */
-
-    footer {
-      background: #0B2035;
-      color: #B8C8D4;
-      padding: 27px 0;
-      font-size: 12px;
-    }
-
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    /* RESPONSIVE DESIGN */
-
-    @media (max-width: 850px) {
-      .menu-toggle {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        position: absolute;
-        top: 78px;
-        left: 0;
-        width: 100%;
-        padding: 22px 5%;
-        background: var(--white);
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 18px;
-        box-shadow: 0 8px 12px rgba(16,43,70,0.08);
-      }
-
-      .nav-links.active {
-        display: flex;
-      }
-
-      .about-grid,
-      .project-card,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .approach-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-    }
-
     @media (max-width: 560px) {
-      .hero {
-        padding: 75px 0;
-      }
-
-      section {
-        padding: 65px 0;
-      }
-
-      .services-grid,
-      .approach-grid,
-      .two-column {
-        grid-template-columns: 1fr;
-      }
-
-      .project-content,
-      .project-stat,
-      .about-panel,
-      .info-card {
-        padding: 27px;
-      }
-
-      .intro-strip p {
-        font-size: 10px;
-        letter-spacing: 1.5px;
-      }
-
-      .footer-content {
-        flex-direction: column;
-      }
+      .container { width: calc(100% - 34px); }
+      .brand-copy strong { font-size: 14px; }.brand-copy small { font-size: 7px; }
+      .hero h1 { font-size: clamp(43px, 13vw, 62px); }.hero-copy > p { font-size: 14px; }.hero-actions { align-items: stretch; flex-direction: column; max-width: 300px; }
+      .hero-visual { min-height: 340px; margin-left: -12px; margin-right: -12px; }.orbit { width: 300px; }.visual-core { width: 180px; height: 180px; }.visual-core svg { width: 116px; }.float-card { padding: 11px 12px; }.float-card strong { font-size: 19px; }.float-card.card-a { top: 32px; left: 0; }.float-card.card-b { right: 0; bottom: 37px; }.float-card.card-c { top: 22px; right: 0; }
+      .proof-grid { grid-template-columns: 1fr 1fr; }.proof-item { padding: 22px 17px; }.proof-item:nth-child(3) { border-left: 1px solid #d4e2e9; }.proof-item:nth-child(-n+2) { border-bottom: 1px solid #d4e2e9; }
+      .story-section, .capabilities, .service-detail, .project-section, .scope-section, .sectors-section, .method-section, .development-section, .people-section, .ethics-section, .portfolio-section, .contact-section { padding-top: 78px; padding-bottom: 78px; }
+      .capability-grid, .sector-grid, .development-grid, .portfolio-grid { grid-template-columns: 1fr; }
+      .cap-card { min-height: 220px; }.service-panel { grid-template-columns: 1fr; padding: 26px; gap: 25px; }.service-list { grid-template-columns: 1fr; }
+      .project-number { width: 205px; height: 205px; }.project-number strong { font-size: 64px; }.data-orbit { width: 300px; height: 300px; }.project-visual { min-height: 330px; }.satellite { font-size: 9px; }.satellite.one { top: 0; left: -2px; }.satellite.two { bottom: 0; right: -2px; }.satellite.three { top: 10px; right: -2px; }
+      .scope-widget { padding: 24px 19px; }.scope-number { font-size: 39px; }.scope-scale { gap: 6px; }.scale-cell { padding: 10px 8px; }
+      .method-trigger { grid-template-columns: 33px 1fr 28px; gap: 9px; }.method-trigger strong { font-size: 14px; }.method-content ul { grid-template-columns: 1fr; padding-left: 51px; }
+      .director-grid { grid-template-columns: 1fr; }.people-statement .big-four { font-size: 65px; }
+      .ethics-panel { padding: 27px 22px; gap: 25px; }.portfolio-card ul { grid-template-columns: 1fr; }
+      .contact-card { padding: 22px; }.footer { margin-top: 55px; }
     }
   </style>
 </head>
-
 <body>
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
 
-  <!-- HEADER -->
-  <header>
-    <div class="container navbar">
-
-      <a href="#home" class="logo" aria-label="LDCS home">
-        <div class="logo-mark">LDCS</div>
-        <div class="logo-text">
-          <strong>LDCS</strong>
-          <span>DATA COLLECTION SPECIALISTS</span>
-        </div>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="LDCS home">
+        <span class="brand-symbol">LDCS</span>
+        <span class="brand-copy"><strong>LDCS</strong><small>Loeriesfontein Data Collection Specialists</small></span>
       </a>
-
-      <button class="menu-toggle"
-        id="menuToggle"
-        aria-label="Open navigation menu"
-        aria-expanded="false">
-        ☰
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation" aria-expanded="false">
+        <svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
-
-      <nav>
-        <ul class="nav-links" id="navLinks">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#team">Team</a></li>
-          <li><a href="#publications">Publications</a></li>
-          <li><a href="#contact" class="nav-contact">Contact Us</a></li>
-        </ul>
+      <nav class="main-nav" id="mainNav" aria-label="Main navigation">
+        <a class="nav-link" href="#home">Home</a>
+        <div class="nav-item">
+          <button class="nav-trigger" type="button" aria-expanded="false">Who we are <svg class="chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 6 5 5 5-5"/></svg></button>
+          <div class="nav-dropdown">
+            <a href="#about">Our story</a><a href="#people">Our leadership</a><a href="#development">Our professional development</a><a href="#ethics">Our commitment to dignity</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <button class="nav-trigger" type="button" aria-expanded="false">What we do <svg class="chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 6 5 5 5-5"/></svg></button>
+          <div class="nav-dropdown">
+            <a href="#capabilities">Our capabilities</a><a href="#services">Service lines</a><a href="#method">Our methodology</a><a href="#sectors">Sectors we serve</a>
+          </div>
+        </div>
+        <div class="nav-item">
+          <button class="nav-trigger" type="button" aria-expanded="false">Our work <svg class="chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="m3 6 5 5 5-5"/></svg></button>
+          <div class="nav-dropdown">
+            <a href="#project">Current flagship project</a><a href="#experience">Our portfolio of experience</a><a href="#scope">Project scale</a>
+          </div>
+        </div>
+        <a class="nav-link" href="#development">Development</a>
+        <a class="nav-cta" href="#contact">Let's talk <span aria-hidden="true">↗</span></a>
       </nav>
-
     </div>
   </header>
 
   <main>
-
-    <!-- HERO -->
+    <!-- OPENING STORY -->
     <section class="hero" id="home">
-      <div class="container">
-        <div class="hero-content">
-
-          <span class="eyebrow">
-            COMMUNITY • DATA • DEVELOPMENT
-          </span>
-
-          <h1>
-            Turning community data into meaningful insight.
-          </h1>
-
-          <p>
-            Loeriesfontein Data Collection Specialists supports
-            informed decision-making through community research,
-            reliable data collection, monitoring and reporting.
-          </p>
-
-          <div class="hero-buttons">
-            <a href="#services" class="button button-light">
-              Explore Our Services
-            </a>
-
-            <a href="#contact" class="button button-outline">
-              Get In Touch
-            </a>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal in-view">
+          <span class="eyebrow">Community · Data · Development</span>
+          <h1>We turn community evidence into <em>meaningful insight.</em></h1>
+          <p>We are Loeriesfontein Data Collection Specialists. Since 2021, we have worked alongside communities, development partners and project stakeholders to collect credible information, understand lived experiences and make development outcomes more visible.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#capabilities">Explore our capabilities <svg class="button-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
+            <a class="button button-outline" href="#project">Discover our work <span aria-hidden="true">↗</span></a>
           </div>
-
+          <div class="hero-footnote">Independent thinking. Respectful engagement. Evidence-led delivery.</div>
+        </div>
+        <div class="hero-visual" aria-label="Abstract visual representation of connected community evidence and research data">
+          <div class="orbit"><span class="orbit-dot"></span><span class="orbit-dot two"></span></div>
+          <div class="visual-core">
+            <svg viewBox="0 0 180 180" fill="none" aria-hidden="true">
+              <circle cx="90" cy="90" r="69" stroke="#9BCFE2" stroke-opacity=".45" stroke-width="1.2"/>
+              <circle cx="90" cy="90" r="48" stroke="#9BCFE2" stroke-opacity=".35" stroke-dasharray="3 5"/>
+              <path d="M42 109 72 78l22 17 39-45" stroke="#B4DFED" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M120 50h13v13" stroke="#B4DFED" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="42" cy="109" r="5" fill="#D8B878"/><circle cx="72" cy="78" r="5" fill="#A9D6E8"/><circle cx="94" cy="95" r="5" fill="#A9D6E8"/><circle cx="133" cy="50" r="5" fill="#A9D6E8"/>
+              <circle cx="90" cy="90" r="11" fill="#A9D6E8" fill-opacity=".13" stroke="#A9D6E8" stroke-opacity=".6"/>
+            </svg>
+          </div>
+          <div class="float-card card-a"><small>Established</small><strong>2021</strong><span>Rooted in Loeriesfontein</span></div>
+          <div class="float-card card-b"><small>Our experience</small><strong>50+</strong><span>Assignments across sectors</span><div class="mini-bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+          <div class="float-card card-c"><small>Our reach</small><strong>20–950+</strong><span>Participant scopes</span></div>
         </div>
       </div>
     </section>
 
-    <div class="intro-strip">
-      <div class="container">
-        <p>
-          LOCAL KNOWLEDGE &nbsp; • &nbsp;
-          QUALITY DATA &nbsp; • &nbsp;
-          MEANINGFUL OUTCOMES
-        </p>
+    <!-- CREDIBILITY NUMBERS -->
+    <section class="proof-strip" aria-label="LDCS at a glance">
+      <div class="container proof-grid">
+        <div class="proof-item reveal"><span class="proof-value"><span class="count" data-count="2021">2021</span></span><span class="proof-label">Established</span><span class="proof-note">Loeriesfontein, Northern Cape</span></div>
+        <div class="proof-item reveal delay-1"><span class="proof-value"><span class="count" data-count="50" data-suffix="+">50+</span></span><span class="proof-label">M&E assignments</span><span class="proof-note">Across development sectors</span></div>
+        <div class="proof-item reveal delay-2"><span class="proof-value"><span class="count" data-count="4">4</span></span><span class="proof-label">Active directors</span><span class="proof-note">Collective oversight and delivery</span></div>
+        <div class="proof-item reveal delay-3"><span class="proof-value">20–950+</span><span class="proof-label">Participant scopes</span><span class="proof-note">From focused interviews to large studies</span></div>
       </div>
-    </div>
+    </section>
 
-    <!-- ABOUT -->
-    <section id="about">
+    <!-- OUR STORY -->
+    <section class="story-section" id="about">
+      <div class="container story-grid">
+        <div class="story-aside reveal">
+          <p class="section-kicker">Who we are</p>
+          <h2 class="section-title">We believe good development starts with listening.</h2>
+          <span class="vertical-tag">A South African MERL practitioner organisation</span>
+        </div>
+        <div class="story-content reveal delay-1">
+          <p class="lead">We are a Monitoring, Evaluation, Research and Data Collection company established in September 2021 and based in Loeriesfontein, Northern Cape.</p>
+          <p>We specialise in project monitoring, impact evaluation, baseline assessments, beneficiary surveys, stakeholder consultations, data processing, reporting and evidence-based development support. We are a 100% black-owned enterprise, led by four active directors who collectively oversee our operational, strategic, fieldwork, quality assurance, data management and reporting functions.</p>
+          <p>Since our establishment, we have contributed to development interventions across health, education, enterprise development, community infrastructure, agriculture, socioeconomic development, youth development, SMME support, social welfare and livelihood improvement.</p>
+          <p>We have grown from a local data collection provider into an experienced Monitoring and Evaluation practitioner organisation. We support the full project information cycle—from understanding an assignment and designing the research approach to collecting, processing, analysing and reporting evidence.</p>
+          <div class="story-highlight">
+            <span class="icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3 4 7v5c0 5 3.4 8 8 9 4.6-1 8-4 8-9V7l-8-4Z"/><path d="m8.5 12 2.2 2.2 4.8-5"/></svg></span>
+            <div><strong>We bring the whole evidence cycle together.</strong><span>From research design and field implementation to data quality, analysis, reporting and practical recommendations.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPABILITY OVERVIEW -->
+    <section class="capabilities" id="capabilities">
       <div class="container">
+        <div class="section-head reveal">
+          <div><p class="section-kicker">Our capabilities</p><h2 class="section-title">We connect every stage of the evidence journey.</h2></div>
+          <p class="section-intro">We bring research, fieldwork, data management and reporting into one coordinated service—shaped around each assignment’s objectives and operating context.</p>
+        </div>
+        <div class="capability-grid">
+          <article class="cap-card reveal"><span class="cap-no">01 / MEASURE</span><span class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19V5m0 14h17"/><path d="m7 15 4-4 3 2 6-7"/><path d="M16 6h4v4"/></svg></span><h3>Monitoring & Evaluation</h3><p>We establish baselines, track performance, assess outcomes and examine the effectiveness and impact of programmes.</p><a class="card-link" href="#services" aria-label="Explore monitoring and evaluation">↗</a></article>
+          <article class="cap-card reveal delay-1"><span class="cap-no">02 / LISTEN</span><span class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3h11A2.5 2.5 0 0 1 20 5.5v8a2.5 2.5 0 0 1-2.5 2.5H10l-5 4v-4.5A2.5 2.5 0 0 1 4 13.5v-8Z"/><path d="M8 8h8M8 11.5h5"/></svg></span><h3>Research & Fieldwork</h3><p>We design surveys, conduct interviews, facilitate consultations and gather quantitative and qualitative evidence.</p><a class="card-link" href="#services" aria-label="Explore research and fieldwork">↗</a></article>
+          <article class="cap-card reveal delay-2"><span class="cap-no">03 / VALIDATE</span><span class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v7c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12v7c0 1.7 3.6 3 8 3s8-1.3 8-3v-7"/><path d="m9 11 2 2 4-4"/></svg></span><h3>Data Management</h3><p>We verify, clean, code, consolidate and manage records to build structured, consistent and client-ready datasets.</p><a class="card-link" href="#services" aria-label="Explore data management">↗</a></article>
+          <article class="cap-card reveal delay-3"><span class="cap-no">04 / COMMUNICATE</span><span class="cap-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 19V5m0 14h17"/><path d="M8 16v-4m4 4V8m4 8v-6m4 6V4"/></svg></span><h3>Analysis & Reporting</h3><p>We translate findings into progress reports, evaluations, impact insights, executive summaries and recommendations.</p><a class="card-link" href="#services" aria-label="Explore analysis and reporting">↗</a></article>
+        </div>
+      </div>
+    </section>
 
-        <div class="about-grid">
+    <!-- DYNAMIC SERVICE EXPLORER -->
+    <section class="service-detail" id="services">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><p class="section-kicker">What we do</p><h2 class="section-title">We build the right service around the question being asked.</h2></div>
+          <p class="section-intro">Explore our service areas. Select a capability to see the activities we can bring together for an assignment.</p>
+        </div>
+        <div class="service-tabs" role="tablist" aria-label="LDCS service categories">
+          <button class="service-tab" type="button" role="tab" aria-selected="true" data-tab="me">Monitoring & Evaluation</button>
+          <button class="service-tab" type="button" role="tab" aria-selected="false" data-tab="research">Research & Data Collection</button>
+          <button class="service-tab" type="button" role="tab" aria-selected="false" data-tab="data">Data Management</button>
+          <button class="service-tab" type="button" role="tab" aria-selected="false" data-tab="reporting">Reporting</button>
+        </div>
+        <div class="service-panel reveal" id="servicePanel" role="tabpanel" aria-live="polite">
+          <div><p class="eyebrow">Our service framework</p><h3 id="serviceTitle">Monitoring & Evaluation</h3><p class="panel-desc" id="serviceDescription">We help clients understand whether programmes are being implemented as intended, what is changing and what the evidence says about performance and outcomes.</p></div>
+          <div class="service-list" id="serviceList">
+            <span>Baseline studies</span><span>Mid-term evaluations</span><span>Endline evaluations</span><span>Final impact evaluations</span><span>Programme monitoring</span><span>Performance monitoring</span><span>Outcome evaluations</span><span>Community assessments</span><span>Beneficiary satisfaction studies</span><span>Stakeholder assessments</span><span>Project effectiveness reviews</span><span>Theory of Change development</span><span>KPI development and tracking</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-          <div class="about-copy">
-            <div class="section-heading">
-              <div class="section-label">Who We Are</div>
+    <!-- FLAGSHIP PROJECT -->
+    <section class="project-section" id="project">
+      <div class="container project-layout">
+        <div class="project-story reveal">
+          <p class="section-kicker">A current area of work</p>
+          <h3>We are listening to households across the Loeriesfontein community.</h3>
+          <p>Our recent community statistics baseline assessment, associated with Loeriesfontein Wind Farm and Khobab Wind Farm, has a target scope of 950 households. Through structured household interviews and the careful documentation of information, we are working to build a clearer picture of community circumstances and priorities.</p>
+          <p>We use the evidence gathered to support community-level insights, feedback and recommendations. Our work is intended to help stakeholders understand local conditions through organised, dependable information.</p>
+          <div class="project-meta"><div><strong>Loeriesfontein</strong><span>Project location</span></div><div><strong>Baseline assessment</strong><span>Assignment type</span></div><div><strong>950 households</strong><span>Target scope</span></div></div>
+          <div class="privacy-note"><span class="lock"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3m-4 4v3"/></svg></span><div><strong>We protect the people behind the information.</strong><p>We do not use identifiable beneficiary or project photographs as public marketing material. Images provided to us for agreed reporting purposes are handled within that purpose and are not treated as permission for public exposure.</p></div></div>
+        </div>
+        <div class="project-visual reveal delay-1" aria-label="Abstract visual representing a 950-household baseline assessment">
+          <div class="data-orbit"></div>
+          <div class="project-number"><strong>950</strong><span>Target household scope</span></div>
+          <div class="satellite one"><b>FIELDWORK</b>Structured interviews</div>
+          <div class="satellite two"><b>INSIGHT</b>Community evidence</div>
+          <div class="satellite three"><b>OUTPUT</b>Baseline reporting</div>
+        </div>
+      </div>
+    </section>
 
-              <h2>
-                Understanding communities through reliable information.
-              </h2>
+    <!-- SCALE -->
+    <section class="scope-section" id="scope">
+      <div class="container scope-grid">
+        <div class="scope-copy reveal">
+          <p class="section-kicker">Flexible project scale</p>
+          <h2 class="section-title">We scale the work to fit the people and the purpose.</h2>
+          <p>Our assignments vary in size and complexity. Some engagements involve focused interviews with around 20 beneficiaries; others require the coordination and fieldwork needed for 950 or more participants.</p>
+          <p>We shape the research design, field resources, tools and quality controls around the agreed scope. The interactive scale below illustrates the range of participant scopes we can plan for—it is not a live project completion counter.</p>
+        </div>
+        <div class="scope-widget reveal delay-1">
+          <div class="scope-widget-head"><div><small>Explore a typical scope range</small><div class="scope-number"><span id="scopeValue">250</span><span> participants</span></div></div><span class="sector-mark">↗</span></div>
+          <input class="scope-range" id="scopeRange" type="range" min="20" max="950" value="250" step="10" aria-label="Illustrative participant project scope">
+          <div class="range-ends"><span>20 participants</span><span>950+ participants</span></div>
+          <div class="scope-scale"><div class="scale-cell"><b>20–99</b><span>Focused interviews</span></div><div class="scale-cell"><b>100–499</b><span>Medium-scale studies</span></div><div class="scale-cell"><b>500–950+</b><span>Large-scale assessments</span></div></div>
+          <p class="scope-disclaimer">Illustrative scope selector for presentation purposes. Actual participant numbers, sampling and delivery plans are agreed with each client.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTORS -->
+    <section class="sectors-section" id="sectors">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><p class="section-kicker">Where we work</p><h2 class="section-title">We bring our methods to a range of development priorities.</h2></div>
+          <p class="section-intro">Our experience spans programmes that aim to improve access, capability, opportunity, wellbeing and local development.</p>
+        </div>
+        <div class="sector-grid">
+          <article class="sector-card reveal"><span class="sector-mark">01</span><h3>Health</h3><p>We support community health interventions, healthcare access evaluations, beneficiary outcome assessments and health programme monitoring.</p><span class="sector-tag">Health & wellbeing</span></article>
+          <article class="sector-card reveal delay-1"><span class="sector-mark">02</span><h3>Education</h3><p>We contribute to educational development programmes, school-based initiatives, learner support projects and education impact monitoring.</p><span class="sector-tag">Learning & opportunity</span></article>
+          <article class="sector-card reveal delay-2"><span class="sector-mark">03</span><h3>Enterprise & SMME</h3><p>We monitor enterprise development, assess SMME performance, review business support programmes and track economic development.</p><span class="sector-tag">Enterprise development</span></article>
+          <article class="sector-card reveal"><span class="sector-mark">04</span><h3>Agriculture & livelihoods</h3><p>We assess agricultural support projects, livelihood improvement programmes and beneficiary outcomes.</p><span class="sector-tag">Livelihood resilience</span></article>
+          <article class="sector-card reveal delay-1"><span class="sector-mark">05</span><h3>Community development</h3><p>We work across community infrastructure assessments, upliftment projects, socioeconomic programmes and place-based initiatives.</p><span class="sector-tag">Local development</span></article>
+          <article class="sector-card reveal delay-2"><span class="sector-mark">06</span><h3>Social development</h3><p>We support evidence gathering for vulnerable household programmes, youth development, welfare initiatives and community support interventions.</p><span class="sector-tag">People & inclusion</span></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- METHODOLOGY -->
+    <section class="method-section" id="method">
+      <div class="container method-layout">
+        <div class="method-intro reveal">
+          <p class="section-kicker">How we deliver</p>
+          <h2 class="section-title">A disciplined process. A complete evidence cycle.</h2>
+          <p>We use a systematic, evidence-based framework refined through practical project implementation. Expand each phase to explore how we organise our work.</p>
+          <a href="#contact" class="button button-dark">Discuss an assignment <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="method-list reveal delay-1">
+          <article class="method-step active">
+            <button class="method-trigger" type="button" aria-expanded="true"><span class="method-index">01</span><span><strong>Project inception</strong><small>We understand the brief, objectives and intended results.</small></span><span class="method-plus">+</span></button>
+            <div class="method-content"><div class="method-content-inner"><ul><li>Project background and objectives</li><li>Stakeholder and beneficiary details</li><li>Existing project documentation</li><li>Review of available KPIs</li><li>Custom indicators where KPIs do not exist</li></ul></div></div>
+          </article>
+          <article class="method-step">
+            <button class="method-trigger" type="button" aria-expanded="false"><span class="method-index">02</span><span><strong>Research design & planning</strong><small>We select an appropriate framework and tools.</small></span><span class="method-plus">+</span></button>
+            <div class="method-content"><div class="method-content-inner"><ul><li>Evaluation frameworks</li><li>Monitoring and operational plans</li><li>Project timelines</li><li>Sampling methodologies</li><li>Data collection tools</li><li>Beneficiary engagement strategies</li><li>Customised questionnaires</li></ul></div></div>
+          </article>
+          <article class="method-step">
+            <button class="method-trigger" type="button" aria-expanded="false"><span class="method-index">03</span><span><strong>Proposal & operational planning</strong><small>We make the delivery plan clear before work begins.</small></span><span class="method-plus">+</span></button>
+            <div class="method-content"><div class="method-content-inner"><ul><li>Detailed quotations</li><li>Resource allocation plans</li><li>Operational workplans</li><li>Project timelines</li><li>Deliverables schedules</li><li>Reporting frameworks</li><li>Cost and methodology alignment</li></ul></div></div>
+          </article>
+          <article class="method-step">
+            <button class="method-trigger" type="button" aria-expanded="false"><span class="method-index">04</span><span><strong>Data collection</strong><small>We engage participants through suitable field methods.</small></span><span class="method-plus">+</span></button>
+            <div class="method-content"><div class="method-content-inner"><ul><li>Digital questionnaires and online surveys</li><li>Face-to-face interviews</li><li>Door-to-door household visits</li><li>Stakeholder consultations</li><li>Focus group discussions</li><li>Beneficiary interviews</li><li>Community engagement sessions</li></ul></div></div>
+          </article>
+          <article class="method-step">
+            <button class="method-trigger" type="button" aria-expanded="false"><span class="method-index">05</span><span><strong>Data processing & quality assurance</strong><small>We check, organise and consolidate field records.</small></span><span class="method-plus">+</span></button>
+            <div class="method-content"><div class="method-content-inner"><ul><li>Data verification and cleaning</li><li>Data validation and coding</li><li>Statistical review</li><li>Consolidation of field records</li><li>Attendance register verification</li><li>Photographic evidence compilation</li><li>Client-ready dataset preparation</li></ul></div></div>
+          </article>
+          <article class="method-step">
+            <button class="method-trigger" type="button" aria-expanded="false"><span class="method-index">06</span><span><strong>Analysis & reporting</strong><small>We turn organised data into findings and recommendations.</small></span><span class="method-plus">+</span></button>
+            <div class="method-content"><div class="method-content-inner"><ul><li>Key findings and beneficiary feedback</li><li>Stakeholder perspectives</li><li>Outcome and indicator analysis</li><li>Impact assessment and lessons learned</li><li>Risk analysis and practitioner insights</li><li>Recommendations and Theory of Change</li><li>Executive and technical reports</li></ul></div></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="portfolio-section" id="experience">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><p class="section-kicker">Portfolio of evidence</p><h2 class="section-title">We have put our experience to work in more than 50 assignments.</h2></div>
+          <p class="section-intro">Our experience includes monitoring and impact evaluation assignments across a range of development sectors. The examples below reflect areas represented in our organisational records.</p>
+        </div>
+        <div class="portfolio-grid">
+          <article class="portfolio-card reveal"><span class="overline">Selected programme experience</span><h3>Examples in our records</h3><p>We have contributed to monitoring, tracking and evaluation work in projects with different objectives, participant groups and operating contexts.</p><ul><li>Isibindi Programme Monitoring</li><li>SME Development Tracking</li><li>Community Infrastructure Monitoring</li><li>Enterprise Development Assessments</li><li>Community Beneficiary Evaluations</li></ul></article>
+          <article class="portfolio-card reveal delay-1"><span class="overline">Our evidence capability</span><h3>What we bring to an assignment</h3><p>We coordinate the practical elements needed to produce clear, traceable and useful project information.</p><ul><li>Research and survey design</li><li>Fieldwork coordination</li><li>Participant engagement</li><li>Data quality checks</li><li>Analysis and interpretation</li><li>Technical and executive reporting</li></ul></article>
+        </div>
+        <div class="portfolio-bottom reveal">We respect client confidentiality and participant privacy. We do not publish confidential datasets, personal information, beneficiary photographs or client documents without appropriate authority. Our portfolio is therefore presented through service descriptions and approved project references rather than exposing the people who participate in our work.</div>
+      </div>
+    </section>
+
+    <!-- PROFESSIONAL DEVELOPMENT -->
+    <section class="development-section" id="development">
+      <div class="container">
+        <div class="section-head reveal">
+          <div><p class="section-kicker">Professional development</p><h2 class="section-title">We keep learning, refining and strengthening our practice.</h2></div>
+          <p class="section-intro">Our technical and organisational development has been supported by mentorship, practical guidance and formal Monitoring and Evaluation training.</p>
+        </div>
+        <div class="development-grid">
+          <article class="development-card reveal"><span class="year-label">From 2021 onwards</span><h3>Africa Foundation for Sustainable Development</h3><p>We participated in structured mentoring that helped strengthen our foundational Monitoring and Evaluation capability through regular practical support.</p><ul><li>Monitoring and Evaluation methodology</li><li>Field research practices</li><li>Reporting standards</li><li>Data management and quality assurance</li><li>Client-focused delivery and administration</li></ul></article>
+          <article class="development-card reveal delay-1"><span class="year-label">Business development</span><h3>JLK Business Consulting</h3><p>We participated in business mentorship and compliance support initiatives, gaining exposure to administrative, compliance and business development processes while continuing our field delivery.</p><ul><li>Business and operational processes</li><li>Administrative discipline</li><li>Compliance awareness</li><li>Business development support</li></ul></article>
+          <article class="development-card reveal delay-2"><span class="year-label">Professional training</span><h3>Foundation for Professional Development</h3><p>Our directors successfully completed a Monitoring and Evaluation course through FPD, strengthening our shared technical foundation.</p><ul><li>Monitoring frameworks</li><li>Evaluation methodologies</li><li>Indicator development</li><li>Data analysis and outcome measurement</li><li>Impact assessment and results-based management</li></ul></article>
+        </div>
+        <div class="development-note reveal">We value the contribution of the organisations that supported our development. We describe these relationships as mentoring, business support and professional training; we do not imply that they constitute endorsement or accreditation of LDCS unless separately authorised.</div>
+      </div>
+    </section>
+
+    <!-- LEADERSHIP -->
+    <section class="people-section" id="people">
+      <div class="container">
+        <div class="reveal"><p class="section-kicker">Our leadership</p><h2 class="section-title">We take collective responsibility for the work we deliver.</h2><p class="section-intro">Our four active directors collectively oversee the strategic, operational and technical responsibilities of the organisation. All are actively involved in project delivery and field operations.</p></div>
+        <div class="people-grid">
+          <div class="people-statement reveal"><div class="big-four">04</div><h3>Directors. One coordinated team.</h3><p>We work collectively across project planning, research, implementation, quality assurance, data management and reporting. Our structure allows us to remain close to both the detail of fieldwork and the wider objectives of each assignment.</p></div>
+          <div class="reveal delay-1">
+            <figure class="leadership-photo">
+              <img src="ldcs-directors-group.png" alt="The four directors of Loeriesfontein Data Collection Specialists together" loading="lazy" decoding="async">
+            </figure>
+            <div class="director-grid">
+              <div class="director-card"><span class="director-initial">VS</span><div><strong>Veronica Slaai</strong><span>Director</span></div></div>
+              <div class="director-card"><span class="director-initial">BP</span><div><strong>Breyton Philander</strong><span>Director</span></div></div>
+              <div class="director-card"><span class="director-initial">SL</span><div><strong>Shantel Lewis</strong><span>Director</span></div></div>
+              <div class="director-card"><span class="director-initial">MB</span><div><strong>Michal Beukes</strong><span>Director</span></div></div>
             </div>
-
-            <p>
-              Loeriesfontein Data Collection Specialists (LDCS)
-              is a locally focused organisation providing community
-              research, data collection and reporting services.
-            </p>
-
-            <p>
-              Our work is centred on gathering, organising and
-              interpreting information that helps stakeholders
-              better understand community circumstances, needs
-              and development priorities.
-            </p>
-
-            <p>
-              We believe that credible information and meaningful
-              community engagement are important foundations for
-              responsible planning and sustainable development.
-            </p>
+            <div class="people-functions"><strong>We collectively manage</strong><div class="pill-wrap"><span class="pill">Monitoring & Evaluation</span><span class="pill">Research design</span><span class="pill">Data collection</span><span class="pill">Stakeholder engagement</span><span class="pill">Beneficiary interviews</span><span class="pill">Digital survey administration</span><span class="pill">Data quality assurance</span><span class="pill">Statistical processing</span><span class="pill">Project reporting</span><span class="pill">Impact assessments</span><span class="pill">Administration</span><span class="pill">Client liaison</span></div></div>
           </div>
-
-          <div class="about-panel">
-            <h3>Our Purpose</h3>
-
-            <p>
-              To provide dependable community information and
-              research services that contribute to informed
-              decisions, transparent reporting and positive
-              development outcomes.
-            </p>
-
-            <span class="small-label">
-              COMMUNITY • RESEARCH • INSIGHT
-            </span>
-          </div>
-
         </div>
       </div>
     </section>
 
-    <!-- SERVICES -->
-    <section class="services-section" id="services">
+    <!-- ETHICS / DIGNITY -->
+    <section class="ethics-section" id="ethics">
       <div class="container">
-
-        <div class="section-heading">
-          <div class="section-label">What We Do</div>
-
-          <h2>Our Services</h2>
-
-          <p>
-            Practical research and information services designed
-            to support organisations, projects and communities.
-          </p>
-        </div>
-
-        <div class="services-grid">
-
-          <article class="service-card">
-            <span class="service-number">01</span>
-            <h3>Community Baseline Assessments</h3>
-            <p>
-              Collecting and analysing community-level information
-              to establish baseline conditions and identify
-              development priorities.
-            </p>
-          </article>
-
-          <article class="service-card">
-            <span class="service-number">02</span>
-            <h3>Data Collection & Field Research</h3>
-            <p>
-              Structured household interviews, field surveys,
-              community questionnaires and organised data
-              gathering.
-            </p>
-          </article>
-
-          <article class="service-card">
-            <span class="service-number">03</span>
-            <h3>Monitoring, Evaluation & Reporting</h3>
-            <p>
-              Documenting project activities, assessing progress
-              and preparing reports to support accountability
-              and decision-making.
-            </p>
-          </article>
-
-          <article class="service-card">
-            <span class="service-number">04</span>
-            <h3>Socioeconomic Research</h3>
-            <p>
-              Gathering information about living circumstances,
-              household conditions and socioeconomic trends.
-            </p>
-          </article>
-
-          <article class="service-card">
-            <span class="service-number">05</span>
-            <h3>Stakeholder Engagement</h3>
-            <p>
-              Supporting communication and information gathering
-              between project stakeholders and local communities.
-            </p>
-          </article>
-
-          <article class="service-card">
-            <span class="service-number">06</span>
-            <h3>Community Impact Assessments</h3>
-            <p>
-              Supporting the identification and documentation
-              of community-level impacts, feedback and
-              development recommendations.
-            </p>
-          </article>
-
+        <div class="ethics-panel reveal">
+          <div><span class="ethics-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3 4.5 6.5v5.2c0 4.4 2.8 7.7 7.5 9.3 4.7-1.6 7.5-4.9 7.5-9.3V6.5L12 3Z"/><path d="m8.5 12.2 2.3 2.3 4.8-5"/></svg></span><p class="section-kicker" style="margin-top:22px">Our commitment</p><span class="vertical-tag">Dignity before publicity</span></div>
+          <div><h2>We protect the dignity of the people who trust us with their stories.</h2><p>We work with people from different circumstances, including vulnerable households and individuals who may be facing difficult social or economic conditions. We recognise that every participant deserves to be approached with respect, sensitivity and consideration for their privacy.</p><p>Some participants may agree to photographs being taken as part of an agreed reporting process. We understand that this does not automatically mean they have agreed to public exposure, marketing use or publication on a website. We therefore do not use beneficiary or project photographs as promotional content.</p><p>We believe professional evidence gathering should never compromise a person's dignity. We aim to protect participant trust, follow the purpose for which information was collected and share project material only through authorised reporting channels.</p><div class="ethics-quote">“We can demonstrate the quality of our work without displaying the people who have placed their trust in us.”</div></div>
         </div>
       </div>
     </section>
 
-    <!-- PROJECTS -->
-    <section id="projects">
+    <!-- ORGANISATIONAL COMPETENCIES -->
+    <section class="capabilities" id="competencies">
       <div class="container">
-
-        <div class="section-heading">
-          <div class="section-label">Our Experience</div>
-
-          <h2>Projects & Community Work</h2>
-
-          <p>
-            Our work focuses on understanding local conditions
-            and providing useful information for project
-            planning and community development.
-          </p>
-        </div>
-
-        <div class="project-card">
-
-          <div class="project-content">
-            <div class="section-label">
-              Community Research Project
-            </div>
-
-            <h3>
-              Loeriesfontein & Khobab Wind Farms
-            </h3>
-
-            <p>
-              LDCS is conducting a community statistics baseline
-              assessment focused on understanding household
-              circumstances within the Loeriesfontein area.
-            </p>
-
-            <p>
-              The assessment involves structured household
-              interviews and the documentation of relevant
-              community information to support an informed
-              understanding of local conditions.
-            </p>
-
-            <p>
-              The findings are intended to contribute to
-              community-level insights, feedback and
-              recommendations.
-            </p>
-          </div>
-
-          <div class="project-stat">
-            <strong>950</strong>
-            <span>Target households</span>
-          </div>
-
+        <div class="section-head reveal"><div><p class="section-kicker">Our organisational competencies</p><h2 class="section-title">We combine technical disciplines into practical delivery.</h2></div><p class="section-intro">Our competencies are applied as an integrated set of capabilities, aligned to assignment scope, deliverables and stakeholder requirements.</p></div>
+        <div class="sector-grid">
+          <article class="sector-card reveal"><span class="sector-mark">M</span><h3>Monitoring</h3><p>Project monitoring, programme monitoring, performance monitoring and compliance monitoring.</p><span class="sector-tag">Track implementation</span></article>
+          <article class="sector-card reveal delay-1"><span class="sector-mark">E</span><h3>Evaluation</h3><p>Baseline evaluations, mid-term evaluations, endline evaluations and impact evaluations.</p><span class="sector-tag">Assess results</span></article>
+          <article class="sector-card reveal delay-2"><span class="sector-mark">S</span><h3>Stakeholder management</h3><p>Community engagement, beneficiary management, government and NGO liaison, and private-sector engagement.</p><span class="sector-tag">Work with people</span></article>
+          <article class="sector-card reveal"><span class="sector-mark">R</span><h3>Data & research</h3><p>Survey design, data collection, research administration, quantitative and qualitative analysis, and data quality management.</p><span class="sector-tag">Build reliable evidence</span></article>
+          <article class="sector-card reveal delay-1"><span class="sector-mark">D</span><h3>Reporting</h3><p>Technical reporting, executive reporting, strategic reporting and evidence-based reporting.</p><span class="sector-tag">Communicate insight</span></article>
+          <article class="sector-card reveal delay-2"><span class="sector-mark">L</span><h3>Learning & improvement</h3><p>Theory of Change development, KPI tracking, lessons learned and practical recommendations.</p><span class="sector-tag">Support better decisions</span></article>
         </div>
       </div>
     </section>
 
-    <!-- APPROACH -->
-    <section class="approach-section">
-      <div class="container">
-
-        <div class="section-heading">
-          <div class="section-label">Our Approach</div>
-
-          <h2>How We Work</h2>
-
-          <p>
-            A structured approach to gathering information
-            and turning it into useful findings.
-          </p>
-        </div>
-
-        <div class="approach-grid">
-
-          <div class="approach-item">
-            <strong>01. Engage</strong>
-            <p>
-              Understand the project objectives, stakeholders
-              and community context.
-            </p>
-          </div>
-
-          <div class="approach-item">
-            <strong>02. Collect</strong>
-            <p>
-              Gather information through organised fieldwork
-              and structured data collection.
-            </p>
-          </div>
-
-          <div class="approach-item">
-            <strong>03. Analyse</strong>
-            <p>
-              Organise and review collected information
-              to identify relevant findings.
-            </p>
-          </div>
-
-          <div class="approach-item">
-            <strong>04. Report</strong>
-            <p>
-              Present findings, observations and
-              recommendations in structured reports.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- TEAM -->
-    <section id="team">
-      <div class="container">
-
-        <div class="section-heading">
-          <div class="section-label">Our People</div>
-
-          <h2>Our Team</h2>
-
-          <p>
-            Our work is supported by people with local knowledge
-            and practical field experience.
-          </p>
-        </div>
-
-        <div class="info-card">
-          <h3>Local Knowledge. Dedicated Fieldwork.</h3>
-
-          <p>
-            LDCS brings together the coordination, research
-            and fieldwork capabilities required to support
-            community-based projects.
-          </p>
-
-          <p>
-            Our team structure and project resources are
-            organised according to the requirements and
-            scope of each assignment.
-          </p>
-
-          <p class="note">
-            Individual director profiles, team photographs
-            and approved biographies can be added here.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- PUBLICATIONS -->
-    <section id="publications" class="services-section">
-      <div class="container">
-
-        <div class="section-heading">
-          <div class="section-label">Information Centre</div>
-
-          <h2>Reports & Publications</h2>
-
-          <p>
-            A dedicated space for approved company publications,
-            project summaries and public information.
-          </p>
-        </div>
-
-        <div class="info-card">
-          <h3>Publications Library</h3>
-
-          <p>
-            Public documents and approved reports will be
-            made available here as they are released.
-          </p>
-
-          <p class="note">
-            Only documents authorised for public distribution
-            should be uploaded to this section. Confidential
-            project records and household information must
-            not be published.
-          </p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- CONTACT -->
+    <!-- CLOSE -->
     <section class="contact-section" id="contact">
       <div class="container">
-
-        <div class="section-heading">
-          <div class="section-label">Contact LDCS</div>
-
-          <h2>Let's Work Together</h2>
-
-          <p>
-            Contact us to discuss community research,
-            data collection, reporting or potential
-            project collaboration.
-          </p>
-        </div>
-
-        <div class="contact-grid">
-
-          <div class="contact-details">
-
-            <div class="contact-item">
-              <strong>COMPANY</strong>
-              <p>
-                Loeriesfontein Data Collection Specialists
-                (Pty) Ltd
-              </p>
-            </div>
-
-            <div class="contact-item">
-              <strong>EMAIL</strong>
-              <a href="mailto:Lewis.LDCS@outlook.com">
-                Lewis.LDCS@outlook.com
-              </a>
-            </div>
-
-            <div class="contact-item">
-              <strong>TELEPHONE</strong>
-              <a href="tel:+27711740368">
-                071 174 0368
-              </a>
-            </div>
-
-            <div class="contact-item">
-              <strong>ADDRESS</strong>
-              <p>
-                5 Main Street, Loeriesfontein,
-                Northern Cape, 8185, South Africa
-              </p>
-            </div>
-
+        <div class="contact-layout">
+          <div class="reveal"><p class="section-kicker">Start a conversation</p><h2 class="section-title">Let's build a clearer picture of the change you want to make.</h2><p class="section-intro">Whether you need a baseline study, programme monitoring, beneficiary research, an evaluation or a reporting partner, we would welcome the opportunity to understand your objectives.</p><div class="contact-cta"><a class="button button-primary" href="mailto:Lewis.LDCS@outlook.com?subject=LDCS%20Project%20Enquiry">Talk to our team <svg class="button-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a></div></div>
+          <div class="contact-card reveal delay-1">
+            <div class="contact-line"><small>Our organisation</small><span>Loeriesfontein Data Collection Specialists (Pty) Ltd</span></div>
+            <div class="contact-line"><small>Email</small><a href="mailto:Lewis.LDCS@outlook.com">Lewis.LDCS@outlook.com</a></div>
+            <div class="contact-line"><small>Telephone</small><a href="tel:+27711740368">071 174 0368</a></div>
+            <div class="contact-line"><small>Our location</small><span>5 Main Street, Loeriesfontein, Northern Cape, 8185, South Africa</span></div>
+            <div class="contact-line"><small>Our focus</small><span>Monitoring · Evaluation · Research · Data Collection</span></div>
           </div>
-
-          <div class="contact-message">
-            <h3>Have a project in mind?</h3>
-
-            <p>
-              We welcome enquiries from organisations,
-              project developers, stakeholders and
-              community partners.
-            </p>
-
-            <a
-              class="button button-light"
-              href="mailto:Lewis.LDCS@outlook.com?subject=LDCS%20Project%20Enquiry">
-              Send Us an Email
-            </a>
-          </div>
-
         </div>
+        <footer class="footer"><div><strong>LDCS</strong><br>Community · Data · Development</div><div>© <span id="year"></span> Loeriesfontein Data Collection Specialists (Pty) Ltd. All rights reserved.</div><div><a href="#home">Back to the beginning ↑</a></div></footer>
       </div>
     </section>
-
   </main>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container footer-content">
-
-      <p>
-        © <span id="year"></span>
-        Loeriesfontein Data Collection Specialists.
-        All rights reserved.
-      </p>
-
-      <p>COMMUNITY • DATA • DEVELOPMENT</p>
-
-    </div>
-  </footer>
+  <button class="back-top" id="backTop" aria-label="Back to top"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 14 7-7 7 7"/></svg></button>
 
   <script>
-    // Mobile navigation
-    const menuToggle = document.getElementById("menuToggle");
-    const navLinks = document.getElementById("navLinks");
+    // Mobile navigation and accessible dropdowns
+    const menuToggle = document.getElementById('menuToggle');
+    const mainNav = document.getElementById('mainNav');
+    const navItems = document.querySelectorAll('.nav-item');
 
-    menuToggle.addEventListener("click", function () {
-      const isOpen = navLinks.classList.toggle("active");
-
-      menuToggle.setAttribute("aria-expanded", isOpen);
-      menuToggle.textContent = isOpen ? "×" : "☰";
+    menuToggle.addEventListener('click', () => {
+      const open = mainNav.classList.toggle('mobile-open');
+      document.body.classList.toggle('menu-open', open);
+      menuToggle.setAttribute('aria-expanded', String(open));
+      menuToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+      menuToggle.innerHTML = open
+        ? '<svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 6 12 12M18 6 6 18"/></svg>'
+        : '<svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
     });
 
-    // Close mobile menu after selecting a section
-    document.querySelectorAll("#navLinks a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        navLinks.classList.remove("active");
-        menuToggle.setAttribute("aria-expanded", "false");
-        menuToggle.textContent = "☰";
+    navItems.forEach(item => {
+      const trigger = item.querySelector('.nav-trigger');
+      trigger.addEventListener('click', () => {
+        const isOpen = item.classList.toggle('open');
+        trigger.setAttribute('aria-expanded', String(isOpen));
+        navItems.forEach(other => {
+          if (other !== item) {
+            other.classList.remove('open');
+            other.querySelector('.nav-trigger').setAttribute('aria-expanded', 'false');
+          }
+        });
       });
     });
 
-    // Automatically update copyright year
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-  </script>
+    document.querySelectorAll('#mainNav a').forEach(link => {
+      link.addEventListener('click', () => {
+        mainNav.classList.remove('mobile-open');
+        document.body.classList.remove('menu-open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', 'Open navigation');
+        menuToggle.innerHTML = '<svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
+        navItems.forEach(item => item.classList.remove('open'));
+      });
+    });
 
+    // Accessible accordion: one methodology phase open at a time
+    document.querySelectorAll('.method-trigger').forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const current = trigger.closest('.method-step');
+        const wasActive = current.classList.contains('active');
+        document.querySelectorAll('.method-step').forEach(step => {
+          step.classList.remove('active');
+          step.querySelector('.method-trigger').setAttribute('aria-expanded', 'false');
+        });
+        if (!wasActive) {
+          current.classList.add('active');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Interactive service explorer
+    const serviceData = {
+      me: {
+        title: 'Monitoring & Evaluation',
+        description: 'We help clients understand whether programmes are being implemented as intended, what is changing and what the evidence says about performance and outcomes.',
+        items: ['Baseline studies', 'Mid-term evaluations', 'Endline evaluations', 'Final impact evaluations', 'Programme monitoring', 'Performance monitoring', 'Outcome evaluations', 'Community assessments', 'Beneficiary satisfaction studies', 'Stakeholder assessments', 'Project effectiveness reviews', 'Theory of Change development', 'KPI development and tracking']
+      },
+      research: {
+        title: 'Research & Data Collection',
+        description: 'We design and carry out field research that listens to participants, captures stakeholder perspectives and produces structured quantitative, qualitative or mixed-method evidence.',
+        items: ['Household surveys', 'Community surveys', 'Beneficiary surveys', 'Focus group discussions', 'Key informant interviews', 'Stakeholder interviews', 'Door-to-door data collection', 'Digital survey deployment', 'Mobile data collection', 'Quantitative research', 'Qualitative research', 'Mixed-method research']
+      },
+      data: {
+        title: 'Data Management',
+        description: 'We organise the information generated through fieldwork, apply verification and quality checks, and prepare coherent records for analysis and client use.',
+        items: ['Data cleaning', 'Data verification', 'Data entry', 'Data processing', 'Excel data management', 'Database development', 'Attendance register administration', 'Photo evidence management', 'Quality control audits', 'Data validation', 'Data coding', 'Statistical review']
+      },
+      reporting: {
+        title: 'Reporting',
+        description: 'We communicate evidence in clear reporting formats that help clients understand activities, progress, outcomes, lessons and practical recommendations.',
+        items: ['Monitoring reports', 'Progress reports', 'Evaluation reports', 'Impact evaluation reports', 'Community feedback reports', 'Beneficiary reports', 'Data analysis reports', 'Executive summaries', 'Theory of Change reports', 'Strategic recommendations', 'Lessons learned', 'Risk analysis']
+      }
+    };
+    const serviceTabs = document.querySelectorAll('.service-tab');
+    const serviceTitle = document.getElementById('serviceTitle');
+    const serviceDescription = document.getElementById('serviceDescription');
+    const serviceList = document.getElementById('serviceList');
+    serviceTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        serviceTabs.forEach(button => button.setAttribute('aria-selected', 'false'));
+        tab.setAttribute('aria-selected', 'true');
+        const data = serviceData[tab.dataset.tab];
+        serviceTitle.textContent = data.title;
+        serviceDescription.textContent = data.description;
+        serviceList.innerHTML = data.items.map(item => `<span>${item}</span>`).join('');
+      });
+    });
+
+    // Participant-scope illustration
+    const scopeRange = document.getElementById('scopeRange');
+    const scopeValue = document.getElementById('scopeValue');
+    scopeRange.addEventListener('input', () => {
+      const value = Number(scopeRange.value);
+      scopeValue.textContent = value >= 950 ? '950+' : value.toLocaleString('en-ZA');
+    });
+
+    // Reveal elements as they enter the viewport
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in-view');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal:not(.in-view)').forEach(element => revealObserver.observe(element));
+
+    // Animated numeric proof points (start at their supplied value for reduced-motion users)
+    const countObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = Number(el.dataset.count);
+        const suffix = el.dataset.suffix || '';
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduceMotion || target > 2021) {
+          el.textContent = target.toLocaleString('en-ZA') + suffix;
+        } else {
+          const duration = 1200;
+          const start = performance.now();
+          const tick = now => {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.round(target * eased).toLocaleString('en-ZA') + suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        }
+        countObserver.unobserve(el);
+      });
+    }, { threshold: .7 });
+    document.querySelectorAll('.count').forEach(el => countObserver.observe(el));
+
+    // Scroll progress and back-to-top control
+    const progress = document.getElementById('scrollProgress');
+    const backTop = document.getElementById('backTop');
+    function updateScrollUI() {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const percent = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
+      progress.style.width = percent + '%';
+      backTop.classList.toggle('visible', window.scrollY > 600);
+    }
+    window.addEventListener('scroll', updateScrollUI, { passive: true });
+    updateScrollUI();
+    backTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Current year in footer
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
