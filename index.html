@@ -1,1 +1,1133 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>LDCS | Loeriesfontein Data Collection Specialists</title>
+
+  <meta name="description" content="Loeriesfontein Data Collection Specialists provides community research, data collection, baseline assessments and monitoring, evaluation and reporting services.">
+
+  <meta name="theme-color" content="#102B46">
+
+  <style>
+    :root {
+      --navy: #102B46;
+      --navy-light: #193D5C;
+      --blue: #DCEBF2;
+      --white: #FFFFFF;
+      --text: #263746;
+      --muted: #667786;
+      --background: #F5F8FA;
+      --border: #E1E8ED;
+      --accent: #78AFCB;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    /* HEADER */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--white);
+      box-shadow: 0 2px 12px rgba(16, 43, 70, 0.08);
+    }
+
+    .navbar {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--navy);
+    }
+
+    .logo-mark {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      background: var(--navy);
+      color: var(--white);
+      font-weight: 800;
+      font-size: 17px;
+      letter-spacing: 1px;
+      border-radius: 8px;
+    }
+
+    .logo-text strong {
+      display: block;
+      font-size: 17px;
+      letter-spacing: 1px;
+      line-height: 1.3;
+    }
+
+    .logo-text span {
+      display: block;
+      font-size: 10px;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover {
+      color: #5794B5;
+    }
+
+    .nav-contact {
+      background: var(--navy);
+      color: var(--white) !important;
+      padding: 11px 19px;
+      border-radius: 5px;
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: transparent;
+      color: var(--navy);
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      background:
+        radial-gradient(circle at 85% 20%, rgba(120,175,203,0.22), transparent 30%),
+        linear-gradient(120deg, var(--navy), #193D5C);
+      color: var(--white);
+      padding: 105px 0 110px;
+      overflow: hidden;
+    }
+
+    .hero-content {
+      max-width: 750px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      color: #B8D9E9;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 3px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 66px);
+      line-height: 1.12;
+      margin-bottom: 24px;
+      max-width: 720px;
+    }
+
+    .hero p {
+      max-width: 620px;
+      color: #E0EAF0;
+      font-size: 17px;
+      margin-bottom: 32px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 13px 23px;
+      border-radius: 5px;
+      font-size: 14px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .button-light {
+      background: var(--white);
+      color: var(--navy);
+    }
+
+    .button-outline {
+      border: 1px solid rgba(255,255,255,0.65);
+      color: var(--white);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    /* INTRO STRIP */
+
+    .intro-strip {
+      background: var(--blue);
+      padding: 22px 0;
+    }
+
+    .intro-strip p {
+      text-align: center;
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 3px;
+    }
+
+    /* GENERAL SECTIONS */
+
+    section {
+      padding: 85px 0;
+    }
+
+    .section-heading {
+      max-width: 680px;
+      margin-bottom: 42px;
+    }
+
+    .section-label {
+      color: #5286A3;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-heading h2 {
+      color: var(--navy);
+      font-size: clamp(28px, 4vw, 39px);
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .about-copy p {
+      margin-bottom: 17px;
+      color: var(--muted);
+    }
+
+    .about-panel {
+      background: var(--navy);
+      color: var(--white);
+      padding: 38px;
+      border-radius: 8px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-panel::after {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 50%;
+      right: -55px;
+      bottom: -75px;
+    }
+
+    .about-panel h3 {
+      font-size: 23px;
+      margin-bottom: 15px;
+    }
+
+    .about-panel p {
+      color: #DCE8EF;
+      font-size: 14px;
+    }
+
+    .about-panel .small-label {
+      display: block;
+      margin-top: 28px;
+      color: #A8CFE2;
+      font-size: 11px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    /* SERVICES */
+
+    .services-section {
+      background: var(--background);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px;
+      transition: 0.25s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(16,43,70,0.08);
+    }
+
+    .service-number {
+      color: #6B9DB8;
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .service-card h3 {
+      color: var(--navy);
+      font-size: 18px;
+      margin: 15px 0 10px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* PROJECTS */
+
+    .project-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 9px;
+      overflow: hidden;
+    }
+
+    .project-content {
+      padding: 42px;
+    }
+
+    .project-content .section-label {
+      color: #A8CFE2;
+    }
+
+    .project-content h3 {
+      font-size: 27px;
+      line-height: 1.25;
+      margin-bottom: 18px;
+    }
+
+    .project-content p {
+      color: #DCE8EF;
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .project-stat {
+      background: #193D5C;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .project-stat strong {
+      font-size: clamp(48px, 7vw, 70px);
+      line-height: 1.1;
+      color: #B8D9E9;
+    }
+
+    .project-stat span {
+      font-size: 13px;
+      letter-spacing: 2px;
+      margin-top: 12px;
+      color: #E0EAF0;
+      text-transform: uppercase;
+    }
+
+    /* APPROACH */
+
+    .approach-section {
+      background: var(--blue);
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .approach-item {
+      padding: 10px;
+    }
+
+    .approach-item strong {
+      display: block;
+      color: var(--navy);
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .approach-item p {
+      color: #526575;
+      font-size: 14px;
+    }
+
+    /* TEAM AND PUBLICATIONS */
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .info-card {
+      border: 1px solid var(--border);
+      padding: 32px;
+      border-radius: 8px;
+      background: var(--white);
+    }
+
+    .info-card h3 {
+      color: var(--navy);
+      font-size: 21px;
+      margin-bottom: 12px;
+    }
+
+    .info-card p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+
+    .info-card .note {
+      background: var(--background);
+      padding: 13px;
+      border-left: 3px solid var(--accent);
+      font-size: 12px;
+    }
+
+    /* CONTACT */
+
+    .contact-section {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .contact-section .section-heading h2 {
+      color: var(--white);
+    }
+
+    .contact-section .section-heading p {
+      color: #DCE8EF;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+    }
+
+    .contact-details {
+      display: grid;
+      gap: 22px;
+    }
+
+    .contact-item strong {
+      display: block;
+      color: #A8CFE2;
+      font-size: 12px;
+      letter-spacing: 2px;
+      margin-bottom: 5px;
+    }
+
+    .contact-item p,
+    .contact-item a {
+      color: var(--white);
+      font-size: 15px;
+      overflow-wrap: anywhere;
+    }
+
+    .contact-item a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-message {
+      background: #193D5C;
+      padding: 32px;
+      border-radius: 8px;
+      align-self: start;
+    }
+
+    .contact-message h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
+    .contact-message p {
+      color: #DCE8EF;
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #0B2035;
+      color: #B8C8D4;
+      padding: 27px 0;
+      font-size: 12px;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    /* RESPONSIVE DESIGN */
+
+    @media (max-width: 850px) {
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 78px;
+        left: 0;
+        width: 100%;
+        padding: 22px 5%;
+        background: var(--white);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        box-shadow: 0 8px 12px rgba(16,43,70,0.08);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .about-grid,
+      .project-card,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .approach-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 560px) {
+      .hero {
+        padding: 75px 0;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .services-grid,
+      .approach-grid,
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+
+      .project-content,
+      .project-stat,
+      .about-panel,
+      .info-card {
+        padding: 27px;
+      }
+
+      .intro-strip p {
+        font-size: 10px;
+        letter-spacing: 1.5px;
+      }
+
+      .footer-content {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container navbar">
+
+      <a href="#home" class="logo" aria-label="LDCS home">
+        <div class="logo-mark">LDCS</div>
+        <div class="logo-text">
+          <strong>LDCS</strong>
+          <span>DATA COLLECTION SPECIALISTS</span>
+        </div>
+      </a>
+
+      <button class="menu-toggle"
+        id="menuToggle"
+        aria-label="Open navigation menu"
+        aria-expanded="false">
+        ☰
+      </button>
+
+      <nav>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#publications">Publications</a></li>
+          <li><a href="#contact" class="nav-contact">Contact Us</a></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container">
+        <div class="hero-content">
+
+          <span class="eyebrow">
+            COMMUNITY • DATA • DEVELOPMENT
+          </span>
+
+          <h1>
+            Turning community data into meaningful insight.
+          </h1>
+
+          <p>
+            Loeriesfontein Data Collection Specialists supports
+            informed decision-making through community research,
+            reliable data collection, monitoring and reporting.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#services" class="button button-light">
+              Explore Our Services
+            </a>
+
+            <a href="#contact" class="button button-outline">
+              Get In Touch
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <div class="intro-strip">
+      <div class="container">
+        <p>
+          LOCAL KNOWLEDGE &nbsp; • &nbsp;
+          QUALITY DATA &nbsp; • &nbsp;
+          MEANINGFUL OUTCOMES
+        </p>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="container">
+
+        <div class="about-grid">
+
+          <div class="about-copy">
+            <div class="section-heading">
+              <div class="section-label">Who We Are</div>
+
+              <h2>
+                Understanding communities through reliable information.
+              </h2>
+            </div>
+
+            <p>
+              Loeriesfontein Data Collection Specialists (LDCS)
+              is a locally focused organisation providing community
+              research, data collection and reporting services.
+            </p>
+
+            <p>
+              Our work is centred on gathering, organising and
+              interpreting information that helps stakeholders
+              better understand community circumstances, needs
+              and development priorities.
+            </p>
+
+            <p>
+              We believe that credible information and meaningful
+              community engagement are important foundations for
+              responsible planning and sustainable development.
+            </p>
+          </div>
+
+          <div class="about-panel">
+            <h3>Our Purpose</h3>
+
+            <p>
+              To provide dependable community information and
+              research services that contribute to informed
+              decisions, transparent reporting and positive
+              development outcomes.
+            </p>
+
+            <span class="small-label">
+              COMMUNITY • RESEARCH • INSIGHT
+            </span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services-section" id="services">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-label">What We Do</div>
+
+          <h2>Our Services</h2>
+
+          <p>
+            Practical research and information services designed
+            to support organisations, projects and communities.
+          </p>
+        </div>
+
+        <div class="services-grid">
+
+          <article class="service-card">
+            <span class="service-number">01</span>
+            <h3>Community Baseline Assessments</h3>
+            <p>
+              Collecting and analysing community-level information
+              to establish baseline conditions and identify
+              development priorities.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">02</span>
+            <h3>Data Collection & Field Research</h3>
+            <p>
+              Structured household interviews, field surveys,
+              community questionnaires and organised data
+              gathering.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">03</span>
+            <h3>Monitoring, Evaluation & Reporting</h3>
+            <p>
+              Documenting project activities, assessing progress
+              and preparing reports to support accountability
+              and decision-making.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">04</span>
+            <h3>Socioeconomic Research</h3>
+            <p>
+              Gathering information about living circumstances,
+              household conditions and socioeconomic trends.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">05</span>
+            <h3>Stakeholder Engagement</h3>
+            <p>
+              Supporting communication and information gathering
+              between project stakeholders and local communities.
+            </p>
+          </article>
+
+          <article class="service-card">
+            <span class="service-number">06</span>
+            <h3>Community Impact Assessments</h3>
+            <p>
+              Supporting the identification and documentation
+              of community-level impacts, feedback and
+              development recommendations.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-label">Our Experience</div>
+
+          <h2>Projects & Community Work</h2>
+
+          <p>
+            Our work focuses on understanding local conditions
+            and providing useful information for project
+            planning and community development.
+          </p>
+        </div>
+
+        <div class="project-card">
+
+          <div class="project-content">
+            <div class="section-label">
+              Community Research Project
+            </div>
+
+            <h3>
+              Loeriesfontein & Khobab Wind Farms
+            </h3>
+
+            <p>
+              LDCS is conducting a community statistics baseline
+              assessment focused on understanding household
+              circumstances within the Loeriesfontein area.
+            </p>
+
+            <p>
+              The assessment involves structured household
+              interviews and the documentation of relevant
+              community information to support an informed
+              understanding of local conditions.
+            </p>
+
+            <p>
+              The findings are intended to contribute to
+              community-level insights, feedback and
+              recommendations.
+            </p>
+          </div>
+
+          <div class="project-stat">
+            <strong>950</strong>
+            <span>Target households</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- APPROACH -->
+    <section class="approach-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-label">Our Approach</div>
+
+          <h2>How We Work</h2>
+
+          <p>
+            A structured approach to gathering information
+            and turning it into useful findings.
+          </p>
+        </div>
+
+        <div class="approach-grid">
+
+          <div class="approach-item">
+            <strong>01. Engage</strong>
+            <p>
+              Understand the project objectives, stakeholders
+              and community context.
+            </p>
+          </div>
+
+          <div class="approach-item">
+            <strong>02. Collect</strong>
+            <p>
+              Gather information through organised fieldwork
+              and structured data collection.
+            </p>
+          </div>
+
+          <div class="approach-item">
+            <strong>03. Analyse</strong>
+            <p>
+              Organise and review collected information
+              to identify relevant findings.
+            </p>
+          </div>
+
+          <div class="approach-item">
+            <strong>04. Report</strong>
+            <p>
+              Present findings, observations and
+              recommendations in structured reports.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-label">Our People</div>
+
+          <h2>Our Team</h2>
+
+          <p>
+            Our work is supported by people with local knowledge
+            and practical field experience.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>Local Knowledge. Dedicated Fieldwork.</h3>
+
+          <p>
+            LDCS brings together the coordination, research
+            and fieldwork capabilities required to support
+            community-based projects.
+          </p>
+
+          <p>
+            Our team structure and project resources are
+            organised according to the requirements and
+            scope of each assignment.
+          </p>
+
+          <p class="note">
+            Individual director profiles, team photographs
+            and approved biographies can be added here.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="services-section">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-label">Information Centre</div>
+
+          <h2>Reports & Publications</h2>
+
+          <p>
+            A dedicated space for approved company publications,
+            project summaries and public information.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>Publications Library</h3>
+
+          <p>
+            Public documents and approved reports will be
+            made available here as they are released.
+          </p>
+
+          <p class="note">
+            Only documents authorised for public distribution
+            should be uploaded to this section. Confidential
+            project records and household information must
+            not be published.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact-section" id="contact">
+      <div class="container">
+
+        <div class="section-heading">
+          <div class="section-label">Contact LDCS</div>
+
+          <h2>Let's Work Together</h2>
+
+          <p>
+            Contact us to discuss community research,
+            data collection, reporting or potential
+            project collaboration.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+
+          <div class="contact-details">
+
+            <div class="contact-item">
+              <strong>COMPANY</strong>
+              <p>
+                Loeriesfontein Data Collection Specialists
+                (Pty) Ltd
+              </p>
+            </div>
+
+            <div class="contact-item">
+              <strong>EMAIL</strong>
+              <a href="mailto:Lewis.LDCS@outlook.com">
+                Lewis.LDCS@outlook.com
+              </a>
+            </div>
+
+            <div class="contact-item">
+              <strong>TELEPHONE</strong>
+              <a href="tel:+27711740368">
+                071 174 0368
+              </a>
+            </div>
+
+            <div class="contact-item">
+              <strong>ADDRESS</strong>
+              <p>
+                5 Main Street, Loeriesfontein,
+                Northern Cape, 8185, South Africa
+              </p>
+            </div>
+
+          </div>
+
+          <div class="contact-message">
+            <h3>Have a project in mind?</h3>
+
+            <p>
+              We welcome enquiries from organisations,
+              project developers, stakeholders and
+              community partners.
+            </p>
+
+            <a
+              class="button button-light"
+              href="mailto:Lewis.LDCS@outlook.com?subject=LDCS%20Project%20Enquiry">
+              Send Us an Email
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-content">
+
+      <p>
+        © <span id="year"></span>
+        Loeriesfontein Data Collection Specialists.
+        All rights reserved.
+      </p>
+
+      <p>COMMUNITY • DATA • DEVELOPMENT</p>
+
+    </div>
+  </footer>
+
+  <script>
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", function () {
+      const isOpen = navLinks.classList.toggle("active");
+
+      menuToggle.setAttribute("aria-expanded", isOpen);
+      menuToggle.textContent = isOpen ? "×" : "☰";
+    });
+
+    // Close mobile menu after selecting a section
+    document.querySelectorAll("#navLinks a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        navLinks.classList.remove("active");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // Automatically update copyright year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+  </script>
+
+</body>
+</html>
+
